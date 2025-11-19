@@ -5,12 +5,13 @@ namespace SeaRise.Models
 {
     public class LoginModel
     {
-        [Required][EmailAddress(ErrorMessage = "Invalid email format.")]
+        [Required][EmailAddress(ErrorMessage = "Email é obrigatório.")]
+        [RegularExpression(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", ErrorMessage = "Formato de email inválido.")]
         public string? Email { get; set; }
 
-        [Required(ErrorMessage = "Password is required.")]
+        [Required(ErrorMessage = "Password é obrigatório.")]
         [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,50}$",
-                ErrorMessage = "Password must be 8-50 characters long, include at least one uppercase letter, one lowercase letter, one digit, and one special character.")]
+                ErrorMessage = "Password tem de ter entre 8 a 50 caracteres, incluir pelo menos uma letra maiúscula, uma letra minúscula, um número e um símbolo.")]
         public string? Password { get; set; }
     }
 }
