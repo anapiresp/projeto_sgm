@@ -1,0 +1,3 @@
+uri da bd:
+
+mongodb+srv://admin:4t8a7jxZXWDJHctD@cluster0.nznyilk.mongodb.net/?authMechanism=SCRAM-SHA-1
