@@ -1,4 +1,3 @@
-using SeaRise.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 namespace SeaRise.Models
@@ -23,7 +22,8 @@ namespace SeaRise.Models
 
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: geral , trabalhador, empregador e admin.")]
+        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: geral , trabalhador ou admin.")]
         public string UserType { get; set; } = string.Empty;
+        public string Job { get; set; } = string.Empty;
     }
 }

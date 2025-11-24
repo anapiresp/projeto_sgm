@@ -1,11 +1,10 @@
-using SeaRise.Interfaces;
 using System.ComponentModel.DataAnnotations;
 
 namespace SeaRise.Models
 {
     public class LoginModel
     {
-        [Required][EmailAddress(ErrorMessage = "Username é obrigatório.")]
+        [Required (ErrorMessage = "Username é obrigatório.")]
         public string? Username { get; set; }
 
         [Required(ErrorMessage = "Password é obrigatório.")]
