@@ -26,19 +26,19 @@ namespace SeaRise.Controllers
             var col = _mongo.GetCollection<User>("users");
 
             // Login by username (not email)
-            var filter = Builders<User>.Filter.Eq(u => u.username, model.Username);
+            var filter = Builders<User>.Filter.Eq(u => u.Username, model.Username);
             var user = await col.Find(filter).FirstOrDefaultAsync();
 
             if (user == null)
                 return Unauthorized(new { message = "Nome de utilizador inválido" });
 
-            if (user.password != model.Password)
+            if (user.Password != model.Password)
                 return Unauthorized(new { message = "Palavra-passe incorreta" });
 
             return Ok(new
             {
                 message = "Login bem-sucedido",
-                user = new { user.username, user.email, user.userType }
+                user = new { user.Username, user.Email, user.UserType }
             });
         }
 
@@ -51,8 +51,8 @@ namespace SeaRise.Controllers
             var collection = _mongo.GetCollection<User>("users");
 
             // Check if email or username already exists
-            var emailFilter = Builders<User>.Filter.Eq(u => u.email, model.Email);
-            var usernameFilter = Builders<User>.Filter.Eq(u => u.username, model.Username);
+            var emailFilter = Builders<User>.Filter.Eq(u => u.Email, model.Email);
+            var usernameFilter = Builders<User>.Filter.Eq(u => u.Username, model.Username);
             var existing = await collection.Find(Builders<User>.Filter.Or(emailFilter, usernameFilter)).FirstOrDefaultAsync();
             if (existing != null)
             {
@@ -61,17 +61,17 @@ namespace SeaRise.Controllers
 
             var newUser = new User
             {
-                username = model.Username,
-                email = model.Email,
-                password = model.Password,
-                age = model.Age,
-                userType = model.UserType,
-                job = model.Job
+                Username = model.Username,
+                Email = model.Email,
+                Password = model.Password,
+                Age = model.Age,
+                UserType = model.UserType,
+                Job = model.Job
             };
 
             await collection.InsertOneAsync(newUser);
 
-            return CreatedAtAction(nameof(Register), new { email = newUser.email }, new { message = "Registo bem-sucedido", user = new { newUser.username, newUser.email, newUser.userType } });
+            return CreatedAtAction(nameof(Register), new { email = newUser.Email }, new { message = "Registo bem-sucedido", user = new { newUser.Username, newUser.Email, newUser.UserType } });
         }
     }
 }
