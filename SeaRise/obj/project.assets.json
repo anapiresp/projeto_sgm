@@ -277,19 +277,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\antro\\.nuget\\packages\\": {}
+    "C:\\Users\\apires\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\antro\\Desktop\\SGM (Sistemas Gráficos e Multimédia)\\Projeto\\SGM25_26_Projeto\\SeaRise\\SeaRise.csproj",
+      "projectUniqueName": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
       "projectName": "SeaRise",
-      "projectPath": "C:\\Users\\antro\\Desktop\\SGM (Sistemas Gráficos e Multimédia)\\Projeto\\SGM25_26_Projeto\\SeaRise\\SeaRise.csproj",
-      "packagesPath": "C:\\Users\\antro\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\antro\\Desktop\\SGM (Sistemas Gráficos e Multimédia)\\Projeto\\SGM25_26_Projeto\\SeaRise\\obj\\",
+      "projectPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+      "packagesPath": "C:\\Users\\apires\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\antro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\apires\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"

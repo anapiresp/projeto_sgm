@@ -1,0 +1,41 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #83B0C2;
+    padding: 8px 40px;
+    height: 70px;
+}
+
+.logo-img {
+    height: 60px;
+}
+
+.main-nav {
+    display: flex;
+    gap: 40px;
+}
+
+.main-nav a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #0D034E;
+    font-weight: bold;
+}
+
+.profile-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #0D034E;
+    border-radius: 50%;
+}
