@@ -25,12 +25,15 @@ namespace SeaRise.Controllers
 
             var col = _mongo.GetCollection<User>("users");
 
-            // Login by username (not email)
-            var filter = Builders<User>.Filter.Eq(u => u.Username, model.Username);
+            // Login by username or email
+            var filter = Builders<User>.Filter.Or(
+                Builders<User>.Filter.Eq(u => u.Username, model.UsernameOrEmail),
+                Builders<User>.Filter.Eq(u => u.Email, model.UsernameOrEmail)
+            );
             var user = await col.Find(filter).FirstOrDefaultAsync();
 
             if (user == null)
-                return Unauthorized(new { message = "Nome de utilizador inválido" });
+                return Unauthorized(new { message = "Nome de utilizador ou email inválido" });
 
             if (user.Password != model.Password)
                 return Unauthorized(new { message = "Palavra-passe incorreta" });
