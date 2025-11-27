@@ -14,5 +14,7 @@ namespace SeaRise.Models.Interfaces
         string Content { get; set; }
         string MediaUrl { get; set; }
         bool IsApproved { get; set; }
+        bool WasRejected { get; set; }
+        DateTime CreatedAt { get; set; }
     }
 }

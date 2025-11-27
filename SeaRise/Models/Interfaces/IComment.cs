@@ -13,5 +13,6 @@ namespace SeaRise.Interfaces
         string Content { get; set; }
         DateTime CreatedAt { get; set; }
         bool IsApproved { get; set; }
+        bool WasRejected { get; set; }
     }
 }
