@@ -1,0 +1,243 @@
+body {
+    background-color: #C3DFE0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0 !important;
+    margin: 0 !important;
+
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+}
+
+.header-object {
+    width: 100%;
+    height: auto !important;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.back-btn {
+    background-color: #83B0C2;
+    color: #0D034E;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #71a1b4;
+}
+
+
+.post-container {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+
+    max-width: 1000px;
+    margin: 40px auto;
+    width: 90%;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.post-user {
+    font-weight: bold;
+    color: #0D034E;
+    margin: 0;
+}
+
+.post-date {
+    font-size: 13px;
+    color: #444;
+    margin: 0;
+}
+
+
+.post-title {
+    font-size: 28px;
+    color: #0D034E;
+    margin-top: 10px;
+}
+
+.post-text {
+    line-height: 1.5;
+    font-size: 16px;
+    color: #333;
+}
+
+
+
+.post-media {
+    width: 100%;
+    border-radius: 10px;
+    margin: 20px 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0;
+}
+
+
+.comments-title {
+    font-size: 22px;
+    color: #0D034E;
+}
+
+.comment {
+    background: #E8F2F4;
+    border-left: 4px solid #83B0C2;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.reply {
+    margin-left: 25px;
+    border-left-color: #6f98a5;
+}
+
+.comment-user {
+    font-weight: bold;
+    color: #0D034E;
+    margin: 0;
+}
+
+.comment-text {
+    margin: 5px 0 0;
+}
+
+
+
+
+
+
+.reply-btn {
+    float: right;
+    background-color: #4281A4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.add-comment-btn {
+    background-color: #4281A4;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.popup-box {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.2);
+}
+
+.popup-box h2 {
+    margin-top: 0;
+    color: #0D034E;
+}
+
+.popup-box textarea {
+    width: 100%;
+    height: 100px;
+    resize: none;
+    border-radius: 12px;
+    border: 1px solid #83B0C2;
+    padding: 10px;
+    font-size: 15px;
+    outline: none;
+    background-color: #E8F2F4;
+}
+
+.popup-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.popup-cancel,
+.popup-ok {
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.popup-cancel {
+    background-color: #ccc;
+}
+
+.popup-ok {
+    background-color: #4281A4;
+    color: white;
+}
+
+
+
+.delete-btn {
+    float: right;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-left: 6px;
+    transition: 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}

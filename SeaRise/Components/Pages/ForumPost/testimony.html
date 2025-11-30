@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunhos</title>
+
+    <link rel="stylesheet" href="testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">user</p>
+                <p class="post-date">27/11/2025 18:54</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">a minha experiencia peepeepoopoo</h1>
+
+
+        <p class="post-text">
+            foi bue fixe mesmo eu gostei bué recomendo a toda a gente que experimente é bué fixe mesmo
+        </p>
+
+
+        <img class="post-media" src="https://i.pinimg.com/736x/da/ce/0d/dace0d1aa1f6b3e55034684a8fe8d43f.jpg" alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <button class="reply-btn" onclick="openPopup()">+</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">×</button>
+
+
+            <p class="comment-user">anapires</p>
+            <p class="comment-text">slay linda 💙</p>
+        </div>
+
+        <div class="comment reply">
+            <button class="reply-btn" onclick="openPopup()">+</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">×</button>
+
+
+            <p class="comment-user">pedrof</p>
+            <p class="comment-text">so true!!</p>
+        </div>
+
+        <div class="comment">
+            <button class="reply-btn" onclick="openPopup()">+</button>
+            <button class="delete-btn" onclick="confirmDelete(this)">×</button>
+
+
+            <p class="comment-user">mariajoana</p>
+            <p class="comment-text">es tao inteligente🔥</p>
+        </div>
+
+    </div>
+    <button class="add-comment">+</button>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="deleteConfirm" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Eliminar Comentário</h2>
+            <p>Tens a certeza que queres remover este comentário?</p>
+
+            <div class="popup-actions">
+                <button class="popup-cancel" onclick="closeDeletePopup()">Cancelar</button>
+                <button class="popup-ok" onclick="deleteComment()">Eliminar</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="popup.js"></script>
+
+
+</body>
+
+</html>
