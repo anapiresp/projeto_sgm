@@ -27,7 +27,7 @@ namespace SeaRise.Models
         [BsonElement("was_rejected")]
         public bool WasRejected { get; set; } = false;
 
-        [BsonElement("job_id")]
+        [BsonElement("job_testimony_id")]
         [BsonRepresentation(BsonType.ObjectId)]
         public string JobId { get; set; } = string.Empty;
     }

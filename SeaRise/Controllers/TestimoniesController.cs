@@ -8,6 +8,7 @@ using SeaRise.Services.Database;
 namespace SeaRise.Controllers
 {
     [ApiController]
+    [Route("api/{category}/{jobId}/testimonies")]
     public class TestimoniesController : ControllerBase
     {
         private readonly MongoService _mongo;
@@ -18,7 +19,7 @@ namespace SeaRise.Controllers
         }
 
         /// Lista testimonies para um job específico. Por defeito só retorna testimonies aprovados.
-        [HttpGet("api/{category}/{jobId}/testimonies")]
+        [HttpGet]
         public async Task<ActionResult> GetForJob([FromRoute] string category, [FromRoute] string jobId, [FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] bool approved = true)
         {
             // verifica se o job existe e pertence à categoria pedida
@@ -52,7 +53,7 @@ namespace SeaRise.Controllers
         }
 
         /// Cria um testimony para um job, mas apenas pessoas que exercem  profissão podem deixar testemunhos. O testimony é criado com `approved=false` por defeito.
-        [HttpPost("api/{category}/{jobId}/testimonies")]
+        [HttpPost]
         public async Task<ActionResult> CreateForJob([FromRoute] string category, [FromRoute] string jobId, [FromBody] TestimonyCreateDto dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
@@ -103,17 +104,18 @@ namespace SeaRise.Controllers
                 Content = dto.Content,
                 MediaUrl = dto.MediaUrl ?? string.Empty,
                 IsApproved = false,
+                WasRejected = false,
                 CreatedAt = DateTime.UtcNow
             };
 
             await collection.InsertOneAsync(testimony);
 
-            return CreatedAtAction(nameof(GetById), new { category = category, jobId = jobId, id = testimony.Id }, testimony);
+            return CreatedAtRoute("GetTestimonyById", new { category = category, jobId = jobId, id = testimony.Id }, testimony);
         }
 
-        /// Aprova um testimony (marca is_approved = true). Validação: job existe e pertence à categoria, testimony pertence ao job.
-        [HttpPost("api/{category}/{jobId}/testimonies/{id}/approve")]
-        public async Task<ActionResult> Approve(string category, string jobId, string id)
+        /// Aprova um testimony (marca is_approved = true).
+        [HttpPost("{id}/approve")]
+        public async Task<ActionResult> Approve([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string id)
         {
             var jobsColl = _mongo.GetCollection<Job>("job");
             var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
@@ -121,7 +123,17 @@ namespace SeaRise.Controllers
             if (job == null) return NotFound();
             if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
 
-            // Verifica se o request vem de um admin (header X-User-Id)
+            //verifica se o testimony foi rejeitado anteriormente
+            var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
+            var testimonyFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, id) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
+            var testimony = await testimoniesColl.Find(testimonyFilter).FirstOrDefaultAsync();
+            if (testimony == null) return NotFound();
+            if (testimony.WasRejected == true)
+            {
+                return BadRequest("Não é possível aprovar um testemunho já rejeitado.");
+            }
+
+            // Verifica se o request vem de um admin
             var usersColl = _mongo.GetCollection<BsonDocument>("users");
             if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
             var adminId = Request.Headers["X-User-Id"].ToString();
@@ -151,9 +163,9 @@ namespace SeaRise.Controllers
             return NoContent();
         }
 
-        /// Rejeita um testimony (is_approved = rejected & was_rejected = true). Validação: job existe e pertence à categoria, testimony pertence ao job.
-        [HttpPost("api/{category}/{jobId}/testimonies/{id}/reject")]
-        public async Task<ActionResult> Reject(string category, string jobId, string id)
+        /// Rejeita um testimony (is_approved = rejected & was_rejected = true).
+        [HttpPost("{id}/reject")]
+        public async Task<ActionResult> Reject([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string id)
         {
             var jobsColl = _mongo.GetCollection<Job>("job");
             var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
@@ -161,7 +173,7 @@ namespace SeaRise.Controllers
             if (job == null) return NotFound();
             if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
 
-            // Verifica se o request vem de um admin (header X-User-Id)
+            // Verifica se o request vem de um admin
             var usersColl = _mongo.GetCollection<BsonDocument>("users");
             if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
             var adminId = Request.Headers["X-User-Id"].ToString();
@@ -193,8 +205,8 @@ namespace SeaRise.Controllers
         }
 
         /// Detalhe de um testimony por id.
-        [HttpGet("api/{category}/{jobId}/testimonies/{id}")]
-        public async Task<ActionResult<JobTestimony>> GetById(string category, string jobId, string id)
+        [HttpGet("{id}", Name = "GetTestimonyById")]
+        public async Task<ActionResult<JobTestimony>> GetById([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string id)
         {
             // verifica se o job existe e pertence à categoria pedida
             var jobsColl = _mongo.GetCollection<Job>("job");
