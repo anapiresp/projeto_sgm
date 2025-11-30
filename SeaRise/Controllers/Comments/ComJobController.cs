@@ -75,7 +75,7 @@ namespace SeaRise.Controllers.Comments
             return Ok(new { items, total });
         }
 
-        // GET comment detail
+        // GET detalhes de um comentário por id
         [HttpGet("comments/{id}")]
         public async Task<IActionResult> GetCommentById([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, string id)
         {
@@ -91,7 +91,7 @@ namespace SeaRise.Controllers.Comments
             return Ok(comment);
         }
 
-        // POST create comment
+        // POST criar comentário
         [HttpPost("comments")]
         public async Task<IActionResult> CreateComment([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, [FromBody] TestimonyCommentCreateDto dto)
         {
@@ -103,7 +103,7 @@ namespace SeaRise.Controllers.Comments
             if (testimony == null) return NotFound();
             if (testimony.IsApproved == false || testimony.WasRejected == true) return Forbid();
 
-            // verify user exists
+            // verifica se o utilizador existe
             var usersColl = _mongo.GetCollection<BsonDocument>("users");
             BsonDocument? userDoc = null;
             if (ObjectId.TryParse(dto.UserId, out var userObjId))
