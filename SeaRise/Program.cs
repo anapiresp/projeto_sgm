@@ -1,6 +1,8 @@
 using SeaRise.Services.Database;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +36,35 @@ else
 // Map controller routes
 app.MapControllers();
 
+// Serve static files from the `Components` folder so the HTML/CSS/JS pages are reachable
+var componentsPath = Path.Combine(Directory.GetCurrentDirectory(), "Components");
+if (Directory.Exists(componentsPath))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(componentsPath),
+        RequestPath = ""
+    });
+}
+
 app.UseHttpsRedirection();
+
+// Map root to the login page so http://localhost:PORT/ opens the login/signup flow
+app.MapGet("/", async context =>
+{
+    var file = Path.Combine("Components", "Pages", "SignUpLogin", "login.html");
+    if (File.Exists(file))
+    {
+        await context.Response.SendFileAsync(file);
+    }
+    else
+    {
+        // Fallback to main if login not present
+        var fallback = Path.Combine("Components", "Pages", "Main", "main.html");
+        if (File.Exists(fallback)) await context.Response.SendFileAsync(fallback);
+        else context.Response.StatusCode = 404;
+    }
+});
 
 var summaries = new[]
 {

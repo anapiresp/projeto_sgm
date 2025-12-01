@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <title>O Meu Perfil</title>
+
+    <link rel="stylesheet" href="userprofile.css">
+</head>
+
+<body>
+
+    <object data="../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+    <main class="profile-main">
+        <h1>O Meu Perfil</h1>
+
+        <form id="profileForm" class="profile-form">
+            <input type="hidden" id="_id" name="_id">
+
+            <label>Username
+                <input type="text" id="username" name="username" disabled>
+            </label>
+
+            <label>Email
+                <input type="email" id="email" name="email" disabled>
+            </label>
+
+            <label>Palavra-passe
+                <input type="password" id="password" name="password" placeholder="Deixe em branco para manter" disabled>
+            </label>
+
+            <div class="form-actions">
+                <button type="button" id="editBtn">Editar</button>
+                <button type="submit" id="saveBtn" disabled>Guardar</button>
+            </div>
+
+            <div id="message" class="message"></div>
+        </form>
+
+    </main>
+
+    <script src="userprofile.js"></script>
+</body>
+
+</html>
