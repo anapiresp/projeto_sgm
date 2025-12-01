@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeaRise")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4756251ea228e82199748c92ab12103e6e9fbae5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c1c933580cba73a2fe1567482b12036c9b6a35be")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeaRise")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeaRise")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

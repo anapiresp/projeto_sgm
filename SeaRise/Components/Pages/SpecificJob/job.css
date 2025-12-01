@@ -1,0 +1,94 @@
+body {
+    padding: 0 !important;
+    margin: 0 !important;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #D2E7EA;
+}
+
+.job-page {
+    padding: 40px 80px;
+}
+
+
+.header-object {
+    width: 100%;
+    height: auto !important;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+
+/* Título */
+#job-title {
+    font-size: 48px;
+    color: #07395C;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* Header com media + descrição */
+.job-header {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.job-media img {
+    width: 1000px;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.job-description {
+    flex: 1;
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 18px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.job-description h2 {
+    margin-top: 0;
+    color: #07395C;
+}
+
+/* Duas colunas */
+.job-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.column {
+    width: 45%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.column h2 {
+    color: #07395C;
+    margin-top: 0;
+}
+
+.column-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    background-color: #1A4F7A;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.15s;
+}
+
+.column-btn:hover {
+    background-color: #07395C;
+    transform: scale(1.02);
+}
