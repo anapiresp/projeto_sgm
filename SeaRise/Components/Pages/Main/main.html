@@ -6,12 +6,12 @@
     <title>Sea Rise</title>
 
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/Partials/header.css">
 </head>
 
 <body>
 
-    <object data="../../Partials/header.html" type="text/html" class="header-object">
-    </object>
+    <div id="header-include"></div>
 
 
 
@@ -55,3 +55,16 @@
 </body>
 
 </html>
+
+<script>
+(async function(){
+    try {
+        const res = await fetch('/Partials/header.html');
+        if (!res.ok) return console.warn('Header not found', res.status);
+        const html = await res.text();
+        document.getElementById('header-include').innerHTML = html;
+    } catch (err) {
+        console.error('Error loading header:', err);
+    }
+})();
+</script>
