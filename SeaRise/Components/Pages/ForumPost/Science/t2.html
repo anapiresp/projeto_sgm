@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Museu da Baleia</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@rodrigost</p>
+                <p class="post-date">19/11/2025 15:32</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Biologia marinha na Madeira - tem saída?</h1>
+
+
+
+
+        <p class="post-text">
+            Antes de vir para a Madeira, toda a gente me perguntava o mesmo: ‘Biologia marinha dá mesmo trabalho?’ Hoje,
+            depois de estar a trabalhar no Museu da Baleia, posso responder com toda a certeza: dá, e muito.
+
+            Na Madeira existe uma ligação incrível entre ciência, turismo e conservação. No Museu da Baleia trabalho com
+            foto-identificação de cetáceos, recolha de dados, educação ambiental e até apoio a investigações
+            internacionais. Há sempre projetos a acontecer, desde estudos de comportamento a análise acústica. A
+            quantidade de espécies que passa pelas ilhas é absurda — e isso cria oportunidades constantes para
+            investigadores.
+
+            Para mim, o museu não é só um local de trabalho. É uma comunidade. Somos uma equipa pequena mas apaixonada,
+            onde toda a gente aprende com toda a gente. Temos contacto direto com biólogos, skippers, spotters e até
+            turistas curiosos que querem perceber mais sobre os animais.
+
+            Se estás a pensar vir para a Madeira trabalhar em biologia marinha, posso dizer-te isto: há saída, sim. Não
+            é “fácil”, porque ciência nunca é, mas existe caminho, existe procura, e existe espaço para crescer. Aqui
+            sinto que estou exatamente onde devia estar — no lugar onde o meu trabalho realmente faz diferença. </p>
+
+
+        <img class="post-media"
+            src="https://www.museudabaleia.org/images/galerias/investigacao-cientifica/Equipa%20de%20Mar%20(Museu%20da%20Baleia)_mini.JPG"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@morrammosquitos</p>
+            <p class="comment-text">Excelente testemunho, sempre pensei que a ilha era tão pequenina...</p>
+        </div>
+
+        <div class="comment">
+            <p class="comment-user">@sealover999</p>
+            <p class="comment-text">Impecável, a nossa ilhazinha tem natureza tão bonita 🩷</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@rodrigost</p>
+            <p class="comment-text">Orgulho enorme por trabalhar cá!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@euvur_vvgz</p>
+            <p class="comment-text">10/10, obrigada 🤩</p>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

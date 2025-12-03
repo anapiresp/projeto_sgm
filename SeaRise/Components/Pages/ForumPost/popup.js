@@ -18,8 +18,7 @@ function submitComment() {
     const newComment = document.createElement("div");
     newComment.classList.add("comment");
     newComment.innerHTML = `
-        <button class="reply-btn" onclick="openPopup()">+</button>
-        <p class="comment-user">u/novoUtilizador</p>
+        <p class="comment-user">@ana_pires</p>
         <p class="comment-text">${text}</p>
     `;
 
@@ -28,6 +27,19 @@ function submitComment() {
     closePopup();
     document.getElementById("commentText").value = "";
 }
+
+
+
+document.getElementById("popup").addEventListener("click", function (e) {
+    if (e.target === this) closePopup();
+});
+
+
+
+document.getElementById("deleteConfirm").addEventListener("click", function (e) {
+    if (e.target === this) closeDeletePopup();
+});
+
 
 
 

@@ -9,53 +9,56 @@ body {
     padding: 40px 80px;
 }
 
-
 .header-object {
     width: 100%;
-    height: auto !important;
+    height: 86px !important;
     display: block;
     margin: 0;
     padding: 0;
     border: none;
 }
 
-
-/* Título */
 #job-title {
     font-size: 48px;
     color: #07395C;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     font-weight: 700;
 }
 
-/* Header com media + descrição */
-.job-header {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 50px;
-}
 
-.job-media img {
-    width: 1000px;
-    border-radius: 18px;
-    object-fit: cover;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
-}
 
-.job-description {
-    flex: 1;
+.job-description-top {
     background-color: white;
-    padding: 20px 25px;
+    padding: 25px;
     border-radius: 18px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    margin-bottom: 40px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
 }
 
-.job-description h2 {
-    margin-top: 0;
+.job-description-top p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.5;
     color: #07395C;
 }
 
-/* Duas colunas */
+
+
+.job-media-center {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.job-media-center img {
+    width: 1000px;
+    max-width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.25);
+}
+
 .job-columns {
     display: flex;
     justify-content: space-between;
@@ -67,7 +70,7 @@ body {
     background-color: white;
     padding: 25px;
     border-radius: 18px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
 }
 
 .column h2 {

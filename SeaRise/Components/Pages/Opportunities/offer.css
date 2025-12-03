@@ -1,0 +1,120 @@
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #D2E7EA;
+}
+
+.offer-page {
+    padding: 40px 80px;
+}
+
+.header-object {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    height: 86px !important;
+}
+
+
+
+
+
+
+#offer-title {
+    font-size: 48px;
+    color: #07395C;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+
+.offer-media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.offer-media img {
+    width: 1000px;
+    max-width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.30);
+}
+
+
+
+
+.offer-requirements {
+    background-color: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 50px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+}
+
+.offer-requirements h2 {
+    color: #07395C;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.offer-requirements p,
+.offer-requirements ul {
+    font-size: 17px;
+    line-height: 1.5;
+    color: #07395C;
+}
+
+.offer-requirements ul {
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+.offer-requirements li {
+    margin-bottom: 8px;
+}
+
+
+
+.offer-testemunhos {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.column {
+    width: 60%;
+    background-color: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+}
+
+.column h2 {
+    color: #07395C;
+    margin-top: 0;
+}
+
+.column-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    background-color: #1A4F7A;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.15s;
+}
+
+.column-btn:hover {
+    background-color: #07395C;
+    transform: scale(1.02);
+}
