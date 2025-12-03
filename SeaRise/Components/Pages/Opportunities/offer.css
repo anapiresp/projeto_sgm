@@ -1,24 +1,29 @@
 body {
-    padding: 0 !important;
     margin: 0 !important;
+    padding: 0 !important;
     font-family: 'Segoe UI', sans-serif;
     background-color: #D2E7EA;
 }
 
-.job-page {
+.offer-page {
     padding: 40px 80px;
 }
 
 .header-object {
     width: 100%;
-    height: 86px !important;
     display: block;
     margin: 0;
     padding: 0;
     border: none;
+    height: 86px !important;
 }
 
-#job-title {
+
+
+
+
+
+#offer-title {
     font-size: 48px;
     color: #07395C;
     margin-bottom: 20px;
@@ -27,46 +32,64 @@ body {
 
 
 
-.job-description-top {
+.offer-media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.offer-media img {
+    width: 1000px;
+    max-width: 100%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.30);
+}
+
+
+
+
+.offer-requirements {
     background-color: white;
     padding: 25px;
     border-radius: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
 }
 
-.job-description-top p {
-    margin: 0;
+.offer-requirements h2 {
+    color: #07395C;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.offer-requirements p,
+.offer-requirements ul {
     font-size: 17px;
     line-height: 1.5;
     color: #07395C;
 }
 
+.offer-requirements ul {
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+.offer-requirements li {
+    margin-bottom: 8px;
+}
 
 
-.job-media-center {
-    width: 100%;
+
+.offer-testemunhos {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
-}
-
-.job-media-center img {
-    width: 1000px;
-    max-width: 100%;
-    border-radius: 18px;
-    object-fit: cover;
-    box-shadow: 0px 3px 10px rgba(0,0,0,0.25);
-}
-
-.job-columns {
-    display: flex;
-    justify-content: space-between;
     margin-top: 40px;
 }
 
 .column {
-    width: 45%;
+    width: 60%;
     background-color: white;
     padding: 25px;
     border-radius: 18px;

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Jony's Surf School</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@sara_surfer_</p>
+                <p class="post-date">21/11/2025 10:16</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Trabalhar na Jony's Surf School</h1>
+
+
+
+
+        <p class="post-text">
+            Trabalhar na Jony's Surf School foi uma das melhores experiências da minha vida. A escola tem um ambiente
+            super leve, mas ao mesmo tempo profissional. A equipa é jovem, divertida e vive mesmo o espírito do surf.
+            Nunca me senti “apenas mais um instrutor” — senti-me parte de uma família.
+
+            Os dias começam cedo, normalmente com aquele ar fresco típico da Madeira e o cheiro a mar. Preparamos o
+            material, verificamos as condições e fazemos os briefings com o grupo. Senti sempre que a escola valoriza a
+            segurança tanto quanto a diversão, e isso faz uma diferença enorme para quem está a ensinar.
+
+            O que mais me surpreendeu foi a variedade de pessoas que encontrei: turistas que nunca tocaram numa prancha,
+            surfistas intermediários a tentar evoluir, famílias inteiras a partilhar a experiência… e todos saem da água
+            mais felizes do que entraram. É um privilégio participar nesses momentos.
+
+            E honestamente? Trabalhar ali ajudou-me a crescer pessoalmente. Tornei-me mais comunicativo, mais
+            descontraído, e aprendi a transformar cada aula num momento especial. Mesmo nos dias cansativos, acabamos
+            quase sempre a rir no fim do dia — e isso diz tudo.
+
+            Se estás a pensar em trabalhar em surf na Madeira, eu recomendo a Jony’s de olhos fechados. Tens ondas
+            incríveis, pessoas incríveis e um ambiente que faz com que acordar cedo valha a pena todos os dias. </p>
+
+
+        <img class="post-media" src="https://madeirasurfcamp.com/fotos/madeira-surf-camp-surf-school-3.jpg"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@caramelosalgadoo</p>
+            <p class="comment-text">Parece bem porreirinho</p>
+        </div>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@joao_caroto2005</p>
+            <p class="comment-text">Obrigado!!! Oficialmente convenceste-me a experimentar :p</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@sara_surfer_</p>
+            <p class="comment-text">Fico feliz em saber!</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

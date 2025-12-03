@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Guia de Catamaran</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@daniel_goncalvesdg</p>
+                <p class="post-date">01/12/2025 21:05</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Paga bem ser guia de Catamaran?</h1>
+
+        <p class="post-text">
+            A pergunta que toda a gente me faz é sempre a mesma: ‘Mas isso paga bem?’. A verdade é que depende — como
+            quase tudo no turismo. Não me tornei rico, mas também nunca passei dificuldades. Para mim, ser guia de
+            catamarã compensa muito mais pelo estilo de vida do que pelo salário em si.
+
+            O ordenado é justo, especialmente com gorjetas, que variam bastante dependendo da época e do tipo de grupo.
+            Há dias em que ganho muito mais do que esperava, outros em que é apenas o básico — mas no geral, no final do
+            mês, fico sempre confortável.
+
+            O que realmente pesa é o resto: trabalhar no mar, ver golfinhos quase todos os dias, interagir com pessoas
+            felizes, sentir que estou a proporcionar experiências únicas. Não é aquele trabalho pesado e repetitivo.
+            Sinto que cada tour é diferente e, honestamente, isso vale ouro.
+
+            Se estás a perguntar se paga "muito", diria que paga o suficiente — e o estilo de vida paga o resto. Troco
+            mil vezes um escritório por um convés ao sol. A liberdade compensa tudo. </p>
+
+
+        <img class="post-media"
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/45/8a/98/vmt-madeira-catamaran.jpg?w=1200&h=900&s=1"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@diogobmm</p>
+            <p class="comment-text">Não tinha mesmo noção... uau</p>
+        </div>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@miadopiii</p>
+            <p class="comment-text">Yesssss boa! 🙌</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

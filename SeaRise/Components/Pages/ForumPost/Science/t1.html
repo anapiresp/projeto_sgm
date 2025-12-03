@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@joana_freitas000</p>
+                <p class="post-date">27/11/2025 18:54</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">A minha experiência como Bióloga Marinha</h1>
+
+
+
+
+        <p class="post-text">
+            Ser bióloga marinha sempre foi o meu sonho, mas nunca imaginei que fosse sentir-me tão em casa como me sinto
+            no oceano. Trabalhar no mar é um misto de calma e adrenalina: há dias de laboratório cheios de microscópios
+            e amostras, e outros em que estou num barco a recolher dados, com golfinhos a nadar ao nosso lado. Cada dia
+            é diferente — e isso é o que mais adoro.
+
+            Aprendi que a ciência não é só números e gráficos. É comunidade. É partilhar descobertas com pessoas que têm
+            a mesma paixão gigante pelo mar. É ficar emocionada porque finalmente identificámos um indivíduo que não
+            víamos há meses. É chegar a casa exausta mas feliz.
+
+            Se eu tivesse de descrever a minha vida numa frase, seria:
+            "Trabalho que parece aventura e aventura que parece trabalho."
+            E sinceramente? Não a trocava por nada.
+        </p>
+
+
+        <img class="post-media"
+            src="https://artsandsciences.fsu.edu/sites/default/files/2021-06/MarianaFuentes_FULL.jpg"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@pedrogoncalves223</p>
+            <p class="comment-text">Parece interessante. Quanto ganhavas no início da tua carreira?</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@joana_freitas000</p>
+            <p class="comment-text">Sabendo que comecei a minha carreira como estagiária, surpreendentemente muito :D
+            </p>
+        </div>
+
+        <div class="comment">
+            <p class="comment-user">@maria_martins__</p>
+            <p class="comment-text">Obrigada pelo teu insight 💙</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>
