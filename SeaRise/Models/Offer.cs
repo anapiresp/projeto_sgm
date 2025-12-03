@@ -16,14 +16,5 @@ namespace SeaRise.Models
 
         [BsonElement("company")]
         public string Company { get; set; } = string.Empty;
-
-        [BsonElement("description")]
-        public string Description { get; set; } = string.Empty;
-
-        [BsonElement("media")]
-        public string MediaUrl { get; set; } = string.Empty;
-
-        [BsonElement("created_at")]
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

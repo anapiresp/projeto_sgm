@@ -16,11 +16,5 @@ namespace SeaRise.Models
 
         [BsonElement("category")]
         public string Category { get; set; } = string.Empty;
-
-        [BsonElement("description")]
-        public string Description { get; set; } = string.Empty;
-
-        [BsonElement("media")]
-        public string MediaUrl { get; set; } = string.Empty;
     }
 }
