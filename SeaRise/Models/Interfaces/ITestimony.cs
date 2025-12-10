@@ -9,6 +9,10 @@ namespace SeaRise.Models.Interfaces
         [BsonRepresentation(BsonType.ObjectId)]
         string Id { get; set; }
 
+        [BsonElement("content")]
         string Content { get; set; }
+
+        [BsonElement("id")]
+        string id { get; set; }
     }
 }

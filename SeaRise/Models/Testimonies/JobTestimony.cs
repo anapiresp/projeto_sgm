@@ -14,8 +14,10 @@ namespace SeaRise.Models
         [BsonElement("content")]
         public string Content { get; set; } = string.Empty;
 
-        [BsonElement("job_id")]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string JobId { get; set; } = string.Empty;
+        [BsonElement("id")]
+        public string id { get; set; } = string.Empty;
+
+        [BsonElement("user_id")]
+        public string UserId { get; set; } = string.Empty;
     }
 }
