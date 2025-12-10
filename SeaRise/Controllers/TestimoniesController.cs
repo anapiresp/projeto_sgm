@@ -31,177 +31,20 @@ namespace SeaRise.Controllers
 
             var collection = _mongo.GetCollection<JobTestimony>("job_testimony");
 
-            // Remove testimonies previamente rejeitados para este job antes de listar
-            var rejectedFilter = Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId) & Builders<JobTestimony>.Filter.Eq(t => t.WasRejected, true);
-            await collection.DeleteManyAsync(rejectedFilter);
-
             var fb = Builders<JobTestimony>.Filter;
             var filter = fb.Eq(t => t.JobId, jobId);
-            if (approved)
-            {
-                filter = filter & fb.Eq(t => t.IsApproved, true);
-            }
 
             if (page < 1) page = 1;
             if (pageSize < 1) pageSize = 20;
 
             var total = await collection.CountDocumentsAsync(filter);
             var skip = (page - 1) * pageSize;
-            var items = await collection.Find(filter).SortByDescending(t => t.CreatedAt).Skip(skip).Limit(pageSize).ToListAsync();
+            var items = await collection.Find(filter)
+                                        .Skip(skip)
+                                        .Limit(pageSize)
+                                        .ToListAsync();
 
             return Ok(new { items, total });
-        }
-
-        /// Cria um testimony para um job, mas apenas pessoas que exercem  profissão podem deixar testemunhos. O testimony é criado com `approved=false` por defeito.
-        [HttpPost]
-        public async Task<ActionResult> CreateForJob([FromRoute] string category, [FromRoute] string jobId, [FromBody] TestimonyCreateDto dto)
-        {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            // verifica se o job existe e pertence à categoria pedida
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return BadRequest("Job does not belong to the specified category.");
-
-            // verifica se o utilizador existe, é do tipo 'trabalhador' e está associado a este job
-            var usersColl = _mongo.GetCollection<BsonDocument>("users");
-            BsonDocument? userDoc = null;
-            if (ObjectId.TryParse(dto.UserId, out var userObjId))
-            {
-                userDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("_id", userObjId)).FirstOrDefaultAsync();
-            }
-            if (userDoc == null)
-            {
-                userDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("Id", dto.UserId)).FirstOrDefaultAsync();
-            }
-            if (userDoc == null) return BadRequest("Utilizador não encontrado.");
-
-            string? userType = null;
-            if (userDoc.Contains("UserType")) userType = userDoc.GetValue("UserType").ToString();
-            else if (userDoc.Contains("userType")) userType = userDoc.GetValue("userType").ToString();
-
-            if (string.IsNullOrWhiteSpace(userType) || !string.Equals(userType, "trabalhador", StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Apenas utilizadores do tipo 'trabalhador' podem criar testemunhos para empregos.");
-            }
-
-            string? userJob = null;
-            if (userDoc.Contains("Job")) userJob = userDoc.GetValue("Job").ToString();
-            else if (userDoc.Contains("job")) userJob = userDoc.GetValue("job").ToString();
-
-            var jobTitle = job?.Title ?? string.Empty;
-            if (string.IsNullOrWhiteSpace(userJob) || !string.Equals(userJob.Trim(), jobTitle.Trim(), StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Utilizador não está associado a este emprego e não pode criar um testemunho para ele.");
-            }
-
-            var collection = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var testimony = new JobTestimony
-            {
-                JobId = jobId,
-                UserId = dto.UserId,
-                Content = dto.Content,
-                MediaUrl = dto.MediaUrl ?? string.Empty,
-                IsApproved = false,
-                WasRejected = false,
-                CreatedAt = DateTime.UtcNow
-            };
-
-            await collection.InsertOneAsync(testimony);
-
-            return CreatedAtRoute("GetTestimonyById", new { category = category, jobId = jobId, id = testimony.Id }, testimony);
-        }
-
-        /// Aprova um testimony (marca is_approved = true).
-        [HttpPost("{id}/approve")]
-        public async Task<ActionResult> Approve([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string id)
-        {
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
-
-            //verifica se o testimony foi rejeitado anteriormente
-            var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var testimonyFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, id) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-            var testimony = await testimoniesColl.Find(testimonyFilter).FirstOrDefaultAsync();
-            if (testimony == null) return NotFound();
-            if (testimony.WasRejected == true)
-            {
-                return BadRequest("Não é possível aprovar um testemunho já rejeitado.");
-            }
-
-            // Verifica se o request vem de um admin
-            var usersColl = _mongo.GetCollection<BsonDocument>("users");
-            if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
-            var adminId = Request.Headers["X-User-Id"].ToString();
-            BsonDocument? adminDoc = null;
-            if (ObjectId.TryParse(adminId, out var adminObjId))
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("_id", adminObjId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null)
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("Id", adminId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null) return Forbid("Administrador não encontrado.");
-            string? adminType = null;
-            if (adminDoc.Contains("UserType")) adminType = adminDoc.GetValue("UserType").ToString();
-            else if (adminDoc.Contains("user_type")) adminType = adminDoc.GetValue("user_type").ToString();
-            if (string.IsNullOrWhiteSpace(adminType) || !string.Equals(adminType, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Apenas administradores podem aprovar testemunhos.");
-            }
-
-            var coll = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var filter = Builders<JobTestimony>.Filter.Eq(t => t.Id, id) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-            var update = Builders<JobTestimony>.Update.Set(t => t.IsApproved, true).Set(t => t.WasRejected, false);
-            var res = await coll.UpdateOneAsync(filter, update);
-            if (res.MatchedCount == 0) return NotFound();
-            return NoContent();
-        }
-
-        /// Rejeita um testimony (is_approved = rejected & was_rejected = true).
-        [HttpPost("{id}/reject")]
-        public async Task<ActionResult> Reject([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string id)
-        {
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
-
-            // Verifica se o request vem de um admin
-            var usersColl = _mongo.GetCollection<BsonDocument>("users");
-            if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
-            var adminId = Request.Headers["X-User-Id"].ToString();
-            BsonDocument? adminDoc = null;
-            if (ObjectId.TryParse(adminId, out var adminObjId))
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("_id", adminObjId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null)
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("Id", adminId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null) return Forbid("Administrador não encontrado.");
-            string? adminType = null;
-            if (adminDoc.Contains("UserType")) adminType = adminDoc.GetValue("UserType").ToString();
-            else if (adminDoc.Contains("userType")) adminType = adminDoc.GetValue("userType").ToString();
-            if (string.IsNullOrWhiteSpace(adminType) || !string.Equals(adminType, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Apenas administradores podem rejeitar testemunhos.");
-            }
-
-            var coll = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var filter = Builders<JobTestimony>.Filter.Eq(t => t.Id, id) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-            var update = Builders<JobTestimony>.Update.Set(t => t.IsApproved, false);
-            update = update.Set(t => t.WasRejected, true);
-            var res = await coll.UpdateOneAsync(filter, update);
-            if (res.MatchedCount == 0) return NotFound();
-            return NoContent();
         }
 
         /// Detalhe de um testimony por id.
