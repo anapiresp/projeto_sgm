@@ -18,7 +18,6 @@ namespace SeaRise.Controllers.Comments
         }
 
         // GET testimony detail (non-conflicting path)
-        // Changed from [HttpGet] to [HttpGet("info")] to avoid route collision with TestimoniesController.GetById
         [HttpGet("info")]
         public async Task<IActionResult> GetTestimony([FromRoute] string jobId, [FromRoute] string testimonyId)
         {
@@ -29,8 +28,6 @@ namespace SeaRise.Controllers.Comments
 
             var testimony = await collection.Find(filter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
-            else if (testimony.IsApproved == false || testimony.WasRejected == true)
-                return Forbid();
 
             return Ok(testimony);
         }
@@ -50,20 +47,11 @@ namespace SeaRise.Controllers.Comments
             var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
-            if (testimony.IsApproved == false || testimony.WasRejected == true) return Forbid();
 
             var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
 
-            // delete rejected comments for this testimony
-            var rejectedFilter = Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId) & Builders<JobComment>.Filter.Eq(c => c.WasRejected, true);
-            await coll.DeleteManyAsync(rejectedFilter);
-
             var fb = Builders<JobComment>.Filter;
             var filter = fb.Eq(c => c.JobId, testimonyId);
-            if (approved)
-            {
-                filter = filter & fb.Eq(c => c.IsApproved, true);
-            }
 
             if (page < 1) page = 1;
             if (pageSize < 1) pageSize = 20;
@@ -101,7 +89,6 @@ namespace SeaRise.Controllers.Comments
             var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
-            if (testimony.IsApproved == false || testimony.WasRejected == true) return Forbid();
 
             // verifica se o utilizador existe
             var usersColl = _mongo.GetCollection<BsonDocument>("users");
@@ -122,125 +109,11 @@ namespace SeaRise.Controllers.Comments
                 JobId = testimonyId,
                 UserId = dto.UserId ?? string.Empty,
                 Content = dto.Content,
-                CreatedAt = DateTime.UtcNow,
-                IsApproved = false,
-                WasRejected = false
+                CreatedAt = DateTime.UtcNow
             };
 
             await coll.InsertOneAsync(comment);
             return CreatedAtAction(nameof(GetCommentById), new { category = category, jobId = jobId, testimonyId = testimonyId, id = comment.Id }, comment);
-        }
-
-        // POST aprovar comentário (admin apenas)
-        [HttpPost("comments/{id}/approve")]
-        public async Task<IActionResult> ApproveComment([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, string id)
-        {
-            // validar job/testimony
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
-
-            var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-            var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
-            if (testimony == null) return NotFound();
-
-            //verifica se o comentário foi rejeitado anteriormente
-            var commentsColl = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var commentFilter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
-            var comment = await commentsColl.Find(commentFilter).FirstOrDefaultAsync();
-            if (comment == null) return NotFound();
-            if (comment.WasRejected == true)
-            {
-                return BadRequest("Não é possível aprovar um comentário já rejeitado.");
-            }
-
-           // Verifica se o request vem de um admin
-            var usersColl = _mongo.GetCollection<BsonDocument>("users");
-            if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
-            var adminId = Request.Headers["X-User-Id"].ToString();
-            BsonDocument? adminDoc = null;
-            if (ObjectId.TryParse(adminId, out var adminObjId))
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("_id", adminObjId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null)
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("Id", adminId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null) return Forbid("Administrador não encontrado.");
-            string? adminType = null;
-            if (adminDoc.Contains("User_type")) adminType = adminDoc.GetValue("User_type").ToString();
-            else if (adminDoc.Contains("user_type")) adminType = adminDoc.GetValue("user_type").ToString();
-            if (string.IsNullOrWhiteSpace(adminType) || !string.Equals(adminType, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Apenas administradores podem aprovar comentários.");
-            }
-
-            var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
-            var update = Builders<JobComment>.Update.Set(c => c.IsApproved, true).Set(c => c.WasRejected, false);
-            var res = await coll.UpdateOneAsync(filter, update);
-            if (res.MatchedCount == 0) return NotFound();
-            return NoContent();
-        }
-
-        // POST rejeitar comentário (admin apenas)
-        [HttpPost("comments/{id}/reject")]
-        public async Task<IActionResult> RejectComment([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, string id)
-        {
-            // validar job/testimony
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
-
-            var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-            var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
-            if (testimony == null) return NotFound();
-
-            //verifica se o comentário já foi aprovado
-            var commentsColl = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var commentFilter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
-            var comment = await commentsColl.Find(commentFilter).FirstOrDefaultAsync();
-            if (comment == null) return NotFound();
-            if (comment.IsApproved == true)
-            {
-                return BadRequest("Não é possível rejeitar um comentário já aprovado.");
-            }
-
-            // Verifica se o request vem de um admin
-            var usersColl = _mongo.GetCollection<BsonDocument>("users");
-            if (!Request.Headers.ContainsKey("X-User-Id")) return Forbid("Cabeçalho 'X-User-Id' necessário para moderação.");
-            var adminId = Request.Headers["X-User-Id"].ToString();
-            BsonDocument? adminDoc = null;
-            if (ObjectId.TryParse(adminId, out var adminObjId))
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("_id", adminObjId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null)
-            {
-                adminDoc = await usersColl.Find(Builders<BsonDocument>.Filter.Eq("Id", adminId)).FirstOrDefaultAsync();
-            }
-            if (adminDoc == null) return Forbid("Administrador não encontrado.");
-            string? adminType = null;
-            if (adminDoc.Contains("User_type")) adminType = adminDoc.GetValue("User_type").ToString();
-            else if (adminDoc.Contains("user_type")) adminType = adminDoc.GetValue("user_type").ToString();
-            if (string.IsNullOrWhiteSpace(adminType) || !string.Equals(adminType, "admin", StringComparison.OrdinalIgnoreCase))
-            {
-                return Forbid("Apenas administradores podem rejeitar comentários.");
-            }
-
-            var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
-            var update = Builders<JobComment>.Update.Set(c => c.IsApproved, false).Set(c => c.WasRejected, true);
-            var res = await coll.UpdateOneAsync(filter, update);
-            if (res.MatchedCount == 0) return NotFound();
-            return NoContent();
         }
 
         // DELETE comentário (autor)
