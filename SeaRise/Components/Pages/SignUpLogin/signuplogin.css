@@ -1,5 +1,6 @@
 .login-body {
-    background-color: #000000;
+    background-image: url("https://t4.ftcdn.net/jpg/15/66/12/43/360_F_1566124318_yLEC9Sdl7VXUGj9UnnCwNrf1c6fUa3B7.jpg");
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IHU7D+lRlio=",
+  "dgSpecHash": "5qOFySzdcMc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\antro\\Desktop\\SGM (Sistemas Gráficos e Multimédia)\\Projeto\\SGM25_26_Projeto\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+  "projectFilePath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\apires\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\apires\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
     "C:\\Users\\apires\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
     "C:\\Users\\apires\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512",
