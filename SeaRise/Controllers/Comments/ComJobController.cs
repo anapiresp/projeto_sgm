@@ -8,7 +8,7 @@ using SeaRise.Services.Database;
 namespace SeaRise.Controllers.Comments
 {
     [ApiController]
-    [Route("api/{category}/{jobId}/testimonies/{testimonyId}")]
+    [Route("api/{job}/testimonies/{testimonyId}")]
     public class ComJobController : ControllerBase
     {
         private readonly MongoService _mongo;
@@ -19,13 +19,11 @@ namespace SeaRise.Controllers.Comments
 
         // GET testimony detail (non-conflicting path)
         [HttpGet("info")]
-        public async Task<IActionResult> GetTestimony([FromRoute] string jobId, [FromRoute] string testimonyId)
+        public async Task<IActionResult> GetTestimony([FromRoute] string testimonyId)
         {
             var collection = _mongo.GetCollection<JobTestimony>("job_testimony");
 
-            var filter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) &
-                         Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
-
+            var filter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId);
             var testimony = await collection.Find(filter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
 
@@ -34,24 +32,18 @@ namespace SeaRise.Controllers.Comments
 
         // GET comments list
         [HttpGet("comments")]
-        public async Task<IActionResult> GetComments([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, [FromQuery] int page = 1, [FromQuery] int pageSize = 20, [FromQuery] bool approved = true)
+        public async Task<IActionResult> GetComments([FromRoute] string job, [FromRoute] string testimonyId, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
         {
-            // valida testimony/job/category
-            var jobsColl = _mongo.GetCollection<Job>("job");
-            var jobFilter = Builders<Job>.Filter.Eq(j => j.Id, jobId);
-            var job = await jobsColl.Find(jobFilter).FirstOrDefaultAsync();
-            if (job == null) return NotFound();
-            if (!string.Equals(job.Category, category, StringComparison.OrdinalIgnoreCase)) return NotFound();
 
             var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
+            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
 
             var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
 
             var fb = Builders<JobComment>.Filter;
-            var filter = fb.Eq(c => c.JobId, testimonyId);
+            var filter = fb.Eq(c => c.JobTestimonyId, testimonyId);
 
             if (page < 1) page = 1;
             if (pageSize < 1) pageSize = 20;
@@ -65,15 +57,15 @@ namespace SeaRise.Controllers.Comments
 
         // GET detalhes de um comentário por id
         [HttpGet("comments/{id}")]
-        public async Task<IActionResult> GetCommentById([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, string id)
+        public async Task<IActionResult> GetCommentById([FromRoute] string job, [FromRoute] string testimonyId, string id)
         {
             var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
+            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
 
             var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
+            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobTestimonyId, testimonyId);
             var comment = await coll.Find(filter).FirstOrDefaultAsync();
             if (comment == null) return NotFound();
             return Ok(comment);
@@ -81,12 +73,12 @@ namespace SeaRise.Controllers.Comments
 
         // POST criar comentário
         [HttpPost("comments")]
-        public async Task<IActionResult> CreateComment([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, [FromBody] TestimonyCommentCreateDto dto)
+        public async Task<IActionResult> CreateComment([FromRoute] string job, [FromRoute] string testimonyId, [FromBody] TestimonyCommentCreateDto dto)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
             var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
+            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
 
@@ -106,27 +98,27 @@ namespace SeaRise.Controllers.Comments
             var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
             var comment = new JobComment
             {
-                JobId = testimonyId,
+                JobTestimonyId = testimonyId,
                 UserId = dto.UserId ?? string.Empty,
                 Content = dto.Content,
                 CreatedAt = DateTime.UtcNow
             };
 
             await coll.InsertOneAsync(comment);
-            return CreatedAtAction(nameof(GetCommentById), new { category = category, jobId = jobId, testimonyId = testimonyId, id = comment.Id }, comment);
+            return CreatedAtAction(nameof(GetCommentById), new { job = job, testimonyId = testimonyId, id = comment.Id }, comment);
         }
 
         // DELETE comentário (autor)
         [HttpDelete("comments/{id}")]
-        public async Task<IActionResult> DeleteComment([FromRoute] string category, [FromRoute] string jobId, [FromRoute] string testimonyId, string id)
+        public async Task<IActionResult> DeleteComment([FromRoute] string job, [FromRoute] string testimonyId, string id)
         {
             var testimoniesColl = _mongo.GetCollection<JobTestimony>("job_testimony");
-            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId) & Builders<JobTestimony>.Filter.Eq(t => t.JobId, jobId);
+            var tFilter = Builders<JobTestimony>.Filter.Eq(t => t.Id, testimonyId);
             var testimony = await testimoniesColl.Find(tFilter).FirstOrDefaultAsync();
             if (testimony == null) return NotFound();
 
             var coll = _mongo.GetCollection<JobComment>("job_testimony_comment");
-            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobId, testimonyId);
+            var filter = Builders<JobComment>.Filter.Eq(c => c.Id, id) & Builders<JobComment>.Filter.Eq(c => c.JobTestimonyId, testimonyId);
             var comment = await coll.Find(filter).FirstOrDefaultAsync();
             if (comment == null) return NotFound();
 

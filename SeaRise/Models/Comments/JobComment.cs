@@ -22,7 +22,6 @@ namespace SeaRise.Models
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
         [BsonElement("job_testimony_id")]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string JobId { get; set; } = string.Empty;
+        public string JobTestimonyId { get; set; } = string.Empty;
     }
 }
