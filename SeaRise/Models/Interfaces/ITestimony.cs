@@ -9,12 +9,10 @@ namespace SeaRise.Models.Interfaces
         [BsonRepresentation(BsonType.ObjectId)]
         string Id { get; set; }
 
-        [BsonRepresentation(BsonType.ObjectId)]
-        string UserId { get; set; }
+        [BsonElement("content")]
         string Content { get; set; }
-        string MediaUrl { get; set; }
-        bool IsApproved { get; set; }
-        bool WasRejected { get; set; }
-        DateTime CreatedAt { get; set; }
+
+        [BsonElement("id")]
+        string id { get; set; }
     }
 }

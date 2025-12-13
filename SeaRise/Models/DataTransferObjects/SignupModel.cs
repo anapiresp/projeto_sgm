@@ -13,8 +13,8 @@ namespace SeaRise.Models
 
         
         [Required(ErrorMessage = "Password é obrigatória.")]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,50}$",
-                ErrorMessage = "Password tem de ter mais de 8 caracteres, incluir uma letra maiúscula, uma letra minúscula, um número e um símbolo.")]
+        [RegularExpression(@"^.{8,}$",
+                ErrorMessage = "Password tem de ter mais de 8 caracteres.")]
         public string Password { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Idade é obrigatório.")]
