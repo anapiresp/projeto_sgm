@@ -76,5 +76,59 @@ namespace SeaRise.Controllers
 
             return CreatedAtAction(nameof(Register), new { email = newUser.Email }, new { message = "Registo bem-sucedido", user = new { newUser.Username, newUser.Email, newUser.UserType } });
         }
+
+        [HttpGet("profile")]
+        public async Task<IActionResult> GetProfile([FromQuery] string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return BadRequest(new { message = "Email é obrigatório" });
+
+            var collection = _mongo.GetCollection<User>("users");
+            var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+            var user = await collection.Find(filter).FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound(new { message = "Utilizador não encontrado" });
+
+            return Ok(new
+            {
+                id = user.Id,
+                username = user.Username,
+                email = user.Email,
+                age = user.Age,
+                userType = user.UserType,
+                job = user.Job
+            });
+        }
+
+        [HttpPut("change-password")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var collection = _mongo.GetCollection<User>("users");
+
+            // Find user by email
+            var filter = Builders<User>.Filter.Eq(u => u.Email, model.Email);
+            var user = await collection.Find(filter).FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound(new { message = "Utilizador não encontrado" });
+
+            // Verify current password
+            if (user.Password != model.CurrentPassword)
+                return Unauthorized(new { message = "Password atual incorreta" });
+
+            // Check if new password is different
+            if (model.CurrentPassword == model.NewPassword)
+                return BadRequest(new { message = "A nova password tem de ser diferente da atual" });
+
+            // Update password
+            var update = Builders<User>.Update.Set(u => u.Password, model.NewPassword);
+            await collection.UpdateOneAsync(filter, update);
+
+            return Ok(new { message = "Password alterada com sucesso" });
+        }
     }
 }
