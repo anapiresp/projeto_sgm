@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@biomadeira_research</p>
+                <p class="post-date">05/09/2025 17:55</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Entre dados, sorrisos e muito sal no cabelo</h1>
+
+
+
+
+        <p class="post-text">
+            No Observatório, aprendi que a ciência não vive sozinha — vive das pessoas que a constroem. A equipa é
+            incrível, todos ajudam, todos explicam, todos vibram com as descobertas dos outros. Também há dias longos,
+            equipamentos que falham e relatórios intermináveis… mas no fim do dia, sinto que cresci. Não só como
+            cientista, mas como pessoa.
+        </p>
+
+        <img class="post-media"
+            src="https://schmidtocean.org/wp-content/uploads/Women-in-Marine-Science-Team-1-scaled.jpeg"
+            alt="Imagem do testemunho">
+        <hr>
+
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>
