@@ -324,24 +324,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\antro\\.nuget\\packages\\": {}
+    "C:\\Users\\diogo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+      "projectUniqueName": "C:\\Users\\diogo\\PMS\\projeto_sgm\\SeaRise\\SeaRise.csproj",
       "projectName": "SeaRise",
-      "projectPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
-      "packagesPath": "C:\\Users\\apires\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\obj\\",
+      "projectPath": "C:\\Users\\diogo\\PMS\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+      "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\diogo\\PMS\\projeto_sgm\\SeaRise\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\antro\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
