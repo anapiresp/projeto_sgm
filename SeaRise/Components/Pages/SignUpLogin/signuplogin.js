@@ -55,11 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // Signup page handler (login.html = criar conta)
     if (page === 'login') {
         const form = document.querySelector('.form-area');
+        const typeSelect = document.querySelector('#type');
+        const jobSelect = document.querySelector('#job');
+
+        // Toggle job select based on user type
+        typeSelect?.addEventListener('change', (e) => {
+            if (e.target.value === 'worker') {
+                jobSelect.style.display = 'block';
+            } else {
+                jobSelect.style.display = 'none';
+                jobSelect.value = ''; // Reset job selection
+            }
+        });
 
         form?.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = form.querySelector('input[type="email"]').value;
             const password = form.querySelector('input[type="password"]').value;
+            const age = form.querySelector('input[type="number"]').value;
             const typeEl = form.querySelector('#type');
             const userType = typeEl ? typeEl.value : '';
 
@@ -73,6 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert('Por favor, insere uma password!');
                 return;
             }
+            if(!age){
+                alert('Por favor, insere a tua idade!');
+                return;
+            }
 
             // Validar requisitos da password
             const feedback = getPasswordFeedback(password);
@@ -81,9 +98,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            //Validar idade<18
+            if (parseInt(age, 10) < 18) {
+                alert('Deves ter pelo menos 18 anos para te registares!');
+                return;
+            }
+
             if (!userType) {
                 alert('Por favor, escolhe se traballas ou procuras trabalho!');
                 return;
+            }
+
+            if(typeEl.value === 'worker'){
+                const jobEl = form.querySelector('#job');
+                const job = jobEl ? jobEl.value : '';
+            }else{
+                const job = 'Desempregado';
             }
 
             // Register via AuthController (C# PascalCase)
@@ -92,8 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 Email: email, 
                 Password: password, 
                 UserType: userType,
-                Age: 18,  // Default to minimum age
-                Job: ''
+                Age: parseInt(age, 10),
+                Job: job
             };
 
             // Show loading state
