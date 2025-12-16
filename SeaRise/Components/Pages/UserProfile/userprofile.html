@@ -16,27 +16,29 @@
     <main class="profile-main">
         <h1>O Meu Perfil</h1>
 
-        <form id="profileForm" class="profile-form">
-            <input type="hidden" id="_id" name="_id">
-
-            <label>Username
-                <input type="text" id="username" name="username" disabled>
+        <form id="changePasswordForm" class="profile-form">
+            <h2>Alterar Palavra-passe</h2>
+            
+            <label>Palavra-passe Atual
+                <input type="password" id="currentPassword" name="currentPassword" placeholder="Insere a tua password atual" required>
             </label>
 
-            <label>Email
-                <input type="email" id="email" name="email" disabled>
+            <label>Nova Palavra-passe
+                <input type="password" id="newPassword" name="newPassword" placeholder="Mínimo 8 caracteres" required>
             </label>
 
-            <label>Palavra-passe
-                <input type="password" id="password" name="password" placeholder="Deixe em branco para manter" disabled>
+            <label>Confirmar Nova Palavra-passe
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirma a nova password" required>
             </label>
 
-            <div class="form-actions">
-                <button type="button" id="editBtn">Editar</button>
-                <button type="submit" id="saveBtn" disabled>Guardar</button>
-            </div>
+            <button type="submit" id="changePasswordBtn">Mudar Palavra-passe</button>
 
             <div id="message" class="message"></div>
+        </form>
+
+        <form id="logoutForm" class="profile-form">
+            <h2>Sessão</h2>
+            <button type="submit" id="logoutBtn" class="logout-btn">Logout</button>
         </form>
 
     </main>
