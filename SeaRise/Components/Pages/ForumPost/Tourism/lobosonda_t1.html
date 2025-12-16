@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Lobosonda</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@madi_4r</p>
+                <p class="post-date">30/11/2025 07:58</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Trabalhar na Lobosonda foi uma experiência única</h1>
+
+    <p class="post-text">
+        Trabalhar na <strong>Lobosonda</strong> abriu-me os olhos para o verdadeiro significado de turismo responsável.
+        Todos os dias guiava passeios de observação de golfinhos e baleias, recebendo passageiros de várias partes do
+        mundo. Aprendi a combinar segurança, informação e diversão, garantindo que cada pessoa tivesse uma experiência
+        memorável no mar da Madeira.
+        <br><br>
+        A equipa é fantástica, cada membro é apaixonado pelo que faz e existe sempre apoio mútuo. Senti que podia
+        confiar na tripulação, que havia comunicação constante e que cada decisão era tomada pensando na segurança dos
+        passageiros e dos animais.
+        <br><br>
+        Há desafios, claro: dias longos, mar agitado e turistas nervosos. Mas cada sorriso, cada golfinho a saltar ao
+        lado do barco, faz tudo valer a pena. Saí de lá com experiência, confiança e uma paixão ainda maior pelo mar.
+    </p>
+
+
+        <img class="post-media"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR88NIac6-yMHh0wLvQTjFtU9z0RAq6BWC8dQ&s"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@amoCheesecake</p>
+            <p class="comment-text">Fogo bem fixe... e cumpro todos os requisitos... é desta!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@janifrei03</p>
+            <p class="comment-text">Uau!! Excelente testemunho!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@johnsnow87</p>
+            <p class="comment-text">Pelo título pensava que tratavam mal... ufa</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@madi_4r</p>
+            <p class="comment-text">Hehehe um clickbatezinho para os cliques</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

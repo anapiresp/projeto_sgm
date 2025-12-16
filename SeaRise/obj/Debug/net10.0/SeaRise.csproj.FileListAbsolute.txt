@@ -37,22 +37,6 @@ C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_P
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\SeaRise\obj\Debug\net10.0\SeaRise.pdb
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\SeaRise\obj\Debug\net10.0\SeaRise.genruntimeconfig.cache
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\SeaRise\obj\Debug\net10.0\ref\SeaRise.dll
-<<<<<<< HEAD
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\EmbeddedAttribute.cs
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\ValidatableTypeAttribute.cs
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.csproj.AssemblyReference.cache
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\rpswa.dswa.cache.json
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.AssemblyInfoInputs.cache
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.AssemblyInfo.cs
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.csproj.CoreCompileInputs.cache
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.sourcelink.json
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.dll
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\refint\SeaRise.dll
-C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.pdb
-=======
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\bin\Debug\net10.0\appsettings.Development.json
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\bin\Debug\net10.0\appsettings.json
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.staticwebassets.endpoints.json
@@ -93,5 +77,4 @@ C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_P
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.pdb
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.genruntimeconfig.cache
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\obj\Debug\net10.0\ref\SeaRise.dll
->>>>>>> a22031b4c573c7e745c64913009b625b9afea499
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\bin\Debug\net10.0\BCrypt.Net-Next.dll

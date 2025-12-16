@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@ines_silvama</p>
+                <p class="post-date">14/12/2025 11:08</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Trabalhar no OOM mudou a forma como vejo o oceano</h1>
+
+
+
+
+        <p class="post-text">
+            Entrar no Observatório foi como entrar num mundo onde tudo faz sentido. Aqui, cada pequeno dado conta uma
+            história gigante. Há dias em que estamos no laboratório a analisar amostras e outros em que estamos no mar a
+            lançar equipamentos, com o vento gelado na cara mas o coração quentinho.
+            O melhor de tudo? Sentir que o nosso trabalho contribui para algo real, útil e necessário. Nunca me senti
+            tão orgulhosa do que faço.
+        </p>
+
+        <img class="post-media"
+            src="https://media.vogue.co.uk/photos/629fe94582cda0bcdc9757bc/2%3A3/w_2560%2Cc_limit/IMG_4805%25203_Manjula%2520Wijeyaratne.jpg"
+            alt="Imagem do testemunho">
+        <hr>
+
+
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@carlamonteiro</p>
+            <p class="comment-text">Que lindo!! Adorava trabalhar aí um dia 💙</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@ines_silvama</p>
+            <p class="comment-text">Força!! A área precisa de mais pessoas apaixonadas como tu 🙌
+            </p>
+        </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>
