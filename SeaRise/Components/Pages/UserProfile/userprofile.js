@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPasswordInput = document.getElementById('currentPassword');
     const newPasswordInput = document.getElementById('newPassword');
     const confirmPasswordInput = document.getElementById('confirmPassword');
+    const deleteAccountBtn = document.getElementById('deleteAccountBtn');
 
     // Logout form submission
     logoutForm?.addEventListener('submit', (e) => {
@@ -254,6 +255,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 changeNameBtn.textContent = 'Mudar Nome de Utilizador';
                 changeNameBtn.disabled = false;
             }
+        }
+    });
+
+    // Eliminar conta form submission
+    deleteAccountBtn?.addEventListener('click', async () => {
+        if (!confirm('Tens a certeza que queres eliminar a tua conta? Esta ação é irreversível.')) {
+            return;
+        }
+
+        // Obter o email do utilizador a partir do localStorage
+        const userDataStr = localStorage.getItem('user');
+        if (!userDataStr) {
+            alert('Sessão expirada. Por favor, faz login novamente.');
+            setTimeout(() => {
+                window.location.href = '/Pages/SignUpLogin/signup.html';
+            }, 2000);
+            return;
+        }
+
+        const userData = JSON.parse(userDataStr);
+        const email = userData.Email || userData.email;
+        if (!email) {
+            alert('Email não encontrado. Por favor, faz login novamente.');
+            return;
+        }
+        try {
+            const res = await fetch('/api/auth/delete-account', {
+                method: 'DELETE',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ Email: email })
+            });
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.message || 'Falha ao eliminar conta');
+            }
+            alert('Conta eliminada com sucesso.');
+            localStorage.removeItem('user');
+            window.location.href = '/Pages/SignUpLogin/signup.html';
+        } catch (err) {
+            alert('Erro: ' + err.message);
+            console.error(err);
         }
     });
 

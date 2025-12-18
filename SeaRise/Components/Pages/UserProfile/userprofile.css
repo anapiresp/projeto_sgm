@@ -84,11 +84,13 @@ body {
     margin-top: 8px;
 }
 
-#changePasswordBtn:hover {
+#changePasswordBtn:hover,
+#changeNameBtn:hover {
     background: #2c974b;
 }
 
-#changePasswordBtn:disabled {
+#changePasswordBtn:disabled,
+#changeNameBtn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
 }
@@ -100,6 +102,16 @@ body {
 
 .logout-btn:hover {
     background: #a40e26;
+}
+
+.delete-account-btn {
+    background: #333333;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.delete-account-btn:hover {
+    background: #000000;
 }
 
 .message {

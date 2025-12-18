@@ -152,5 +152,26 @@ namespace SeaRise.Controllers
 
             return Ok(new { message = "Nome de utilizador alterado com sucesso" });
         }
+
+        [HttpDelete("delete-account")]
+        public async Task<IActionResult> DeleteAccount([FromQuery] string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return BadRequest(new { message = "Email é obrigatório" });
+
+            var collection = _mongo.GetCollection<User>("users");
+
+            // Encontrar utilizador pelo email
+            var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+            var user = await collection.Find(filter).FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound(new { message = "Utilizador não encontrado" });
+
+            // Eliminar utilizador
+            await collection.DeleteOneAsync(filter);
+
+            return Ok(new { message = "Conta eliminada com sucesso" });
+        }
     }
 }
