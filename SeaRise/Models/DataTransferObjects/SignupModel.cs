@@ -13,8 +13,8 @@ namespace SeaRise.Models
 
         
         [Required(ErrorMessage = "Password é obrigatória.")]
-        [RegularExpression(@"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,50}$",
-                ErrorMessage = "Password tem de ter mais de 8 caracteres, incluir uma letra maiúscula, uma letra minúscula, um número e um símbolo.")]
+        [RegularExpression(@"^.{8,}$",
+                ErrorMessage = "Password tem de ter mais de 8 caracteres.")]
         public string Password { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Idade é obrigatório.")]
@@ -22,7 +22,7 @@ namespace SeaRise.Models
 
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: geral , trabalhador ou admin.")]
+        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: 'Procuro' ou 'Trabalho'.")]
         public string UserType { get; set; } = string.Empty;
         public string Job { get; set; } = string.Empty;
     }

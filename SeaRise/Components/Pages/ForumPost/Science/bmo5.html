@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@davidrocha__ocean</p>
+                <p class="post-date">22/11/2025 09:42</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Os melhores dias de trabalho são sempre no mar</h1>
+
+
+
+
+        <p class="post-text">
+            O OOM ensinou-me que ciência também é aventura. Houve um dia em que estávamos a 15 milhas da costa a
+            calibrar sensores e, de repente, um grupo enorme de golfinhos decidiu acompanhar-nos durante minutos.
+            Ninguém disse nada — ficámos todos só a olhar e a absorver o momento.
+            É isto que faz valer a pena: saber que estás exatamente onde devias estar.
+        </p>
+
+        <br>
+
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@rui_sousamar</p>
+            <p class="comment-text">OMGGGGGG que sonho 😭</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@martabraga</p>
+            <p class="comment-text">Isto parece tirado de um documentário!</p>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

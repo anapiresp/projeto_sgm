@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Madeira Dive Point</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@madi_4r</p>
+                <p class="post-date">30/11/2025 07:58</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Experiência incrível na Madeira Dive Point</h1>
+
+        <p class="post-text">
+            Na <strong>Madeira Dive Point</strong> senti que cada dia de trabalho era uma aventura. Guiar mergulhadores
+            turísticos e partilhar o oceano da Madeira foi mágico. Ensinar pessoas de todas as idades a mergulhar de
+            forma segura, explicar a vida marinha e garantir que todos se divertiam tornou cada mergulho memorável.
+            <br><br>
+            A equipa é acolhedora e muito profissional. Sempre que surgia um desafio, seja com iniciantes nervosos ou com
+            condições inesperadas no mar, sentia-me apoiado e confiante. A preocupação com segurança, organização e
+            proteção do ambiente é visível em todas as operações.
+            <br><br>
+            O melhor? Ver a alegria de quem mergulha pela primeira vez e saber que foste parte dessa experiência. Cada
+            dia deixa memórias, aprendizado e uma ligação ainda maior ao oceano.
+        </p>
+
+
+
+        <img class="post-media"
+            src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1024,h=650,fit=crop/dOq7Ex34PqF2rBpo/dsc03279_065503-01-mP47EjxQlNc088gE.jpeg"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+
+
+        <div class="comment">
+            <p class="comment-user">@amoCheesecake</p>
+            <p class="comment-text">Fogo bem fixe... e cumpro todos os requisitos... é desta!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@janifrei03</p>
+            <p class="comment-text">Uau!! Excelente testemunho!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@johnsnow87</p>
+            <p class="comment-text">Pelo título pensava que tratavam mal... ufa</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@madi_4r</p>
+            <p class="comment-text">Hehehe um clickbatezinho para os cliques</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>
