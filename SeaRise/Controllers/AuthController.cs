@@ -27,8 +27,8 @@ namespace SeaRise.Controllers
 
             // Login by username or email
             var filter = Builders<User>.Filter.Or(
-                Builders<User>.Filter.Eq(u => u.Username, model.UsernameOrEmail),
-                Builders<User>.Filter.Eq(u => u.Email, model.UsernameOrEmail)
+                Builders<User>.Filter.Eq(u => u.Username, model.Email),
+                Builders<User>.Filter.Eq(u => u.Email, model.Email)
             );
             var user = await col.Find(filter).FirstOrDefaultAsync();
 
@@ -109,26 +109,69 @@ namespace SeaRise.Controllers
 
             var collection = _mongo.GetCollection<User>("users");
 
-            // Find user by email
+            // Encontrar utilizador pelo email
             var filter = Builders<User>.Filter.Eq(u => u.Email, model.Email);
             var user = await collection.Find(filter).FirstOrDefaultAsync();
 
             if (user == null)
                 return NotFound(new { message = "Utilizador não encontrado" });
 
-            // Verify current password
+            // Verificar password atual
             if (user.Password != model.CurrentPassword)
                 return Unauthorized(new { message = "Password atual incorreta" });
 
-            // Check if new password is different
+            // Verificar se a nova password é diferente da atual
             if (model.CurrentPassword == model.NewPassword)
                 return BadRequest(new { message = "A nova password tem de ser diferente da atual" });
 
-            // Update password
+            //  Atualizar password
             var update = Builders<User>.Update.Set(u => u.Password, model.NewPassword);
             await collection.UpdateOneAsync(filter, update);
 
             return Ok(new { message = "Password alterada com sucesso" });
+        }
+
+        [HttpPut("change-username")]
+        public async Task<IActionResult> ChangeUsername([FromBody] ChangeUsernameModel model)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var collection = _mongo.GetCollection<User>("users");
+
+            // Encontrar utilizador pelo email
+            var filter = Builders<User>.Filter.Eq(u => u.Email, model.Email);
+            var user = await collection.Find(filter).FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound(new { message = "Utilizador não encontrado" });
+
+            // Atualizar nome de utilizador
+            var update = Builders<User>.Update.Set(u => u.Username, model.NewName);
+            await collection.UpdateOneAsync(filter, update);
+
+            return Ok(new { message = "Nome de utilizador alterado com sucesso" });
+        }
+
+        [HttpDelete("delete-account")]
+        public async Task<IActionResult> DeleteAccount([FromQuery] string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return BadRequest(new { message = "Email é obrigatório" });
+
+            var collection = _mongo.GetCollection<User>("users");
+
+            // Encontrar utilizador pelo email
+            var filter = Builders<User>.Filter.Eq(u => u.Email, email);
+            var user = await collection.Find(filter).FirstOrDefaultAsync();
+
+            if (user == null)
+                return NotFound(new { message = "Utilizador não encontrado" });
+
+            // Eliminar utilizador
+            await collection.DeleteOneAsync(filter);
+
+            return Ok(new { message = "Conta eliminada com sucesso" });
         }
     }
 }
