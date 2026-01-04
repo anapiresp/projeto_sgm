@@ -26,6 +26,11 @@
 
         <section class="offer-requirements">
             <h2>Requisitos</h2>
+            <div class="info-wrapper">
+                <button class="offer-cta" aria-haspopup="dialog" aria-controls="offer-modal">
+                    <span class="cta-text">Oferta</span>
+                </button>
+            </div>
 
             <p>
                 A Jony's Surf School é uma das escolas mais populares da ilha, conhecida pelo ambiente descontraído,
@@ -44,6 +49,24 @@
                 <li>Fluência em inglês (valorizado: espanhol, francês, alemão, etc.)</li>
             </ul>
         </section>
+
+        <script src="../offer.js"></script>
+
+        <!-- Modal for accepting the offer -->
+        <div id="offer-modal" class="modal-overlay" aria-hidden="true" hidden>
+            <div class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <button class="modal-close" aria-label="Fechar">×</button>
+                <h3 id="modal-title">Oferta especial</h3>
+                <div class="modal-body">
+                    <p>Ao aceitar esta oferta de trabalho, receberá um <strong>voucher de aulas grátis para a família</strong>.</p>
+                    <p>O voucher será enviado para o e-mail associado à sua conta após a validação da contratação.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-accept">Aceitar oferta</button>
+                    <button class="modal-cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
 
 
         <section class="offer-testemunhos">
