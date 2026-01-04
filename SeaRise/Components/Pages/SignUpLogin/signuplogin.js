@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return res;
     }
 
-    // Helper function to extract error messages from response
+    // Função para extrair mensagens de erro detalhadas
     async function getErrorMessage(response) {
         try {
             const data = await response.json();
             
-            // If it's ASP.NET ModelState validation errors
+            // Se for um dicionário de erros
             if (data.errors) {
                 const errorMessages = [];
                 for (const key in data.errors) {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return errorMessages.length > 0 ? errorMessages.join('\n') : 'Erro desconhecido';
             }
             
-            // If it's a custom error message
+            // Se for uma mensagem simples
             if (data.message) {
                 return data.message;
             }
@@ -40,11 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Validar password no frontend - apenas 8+ caracteres
-    function validatePassword(password) {
-        return password.length >= 8;
-    }
-
+    // Função para validar password no frontend - apenas 8+ caracteres
     function getPasswordFeedback(password) {
         if (password.length < 8) {
             return 'Password tem de ter mais de 8 caracteres';
@@ -52,24 +48,25 @@ document.addEventListener('DOMContentLoaded', () => {
         return null;
     }
 
-    // Signup page handler (login.html = criar conta)
+    // Página do SIGN UP (login.html = criar conta)
     if (page === 'login') {
         const form = document.querySelector('.form-area');
         const typeSelect = document.querySelector('#type');
         const jobSelect = document.querySelector('#job');
 
-        // Toggle job select based on user type
+        // Muda a exibição do campo de trabalho com base no tipo de utilizador
         typeSelect?.addEventListener('change', (e) => {
-            if (e.target.value === 'worker') {
+            if (e.target.value === 'Trabalho') {
                 jobSelect.style.display = 'block';
             } else {
                 jobSelect.style.display = 'none';
-                jobSelect.value = ''; // Reset job selection
+                jobSelect.value = ''; // Dá reset ao valor do trabalho
             }
         });
 
         form?.addEventListener('submit', async (e) => {
             e.preventDefault();
+            const username = form.querySelector('input[name="username"]').value;
             const email = form.querySelector('input[type="email"]').value;
             const password = form.querySelector('input[type="password"]').value;
             const age = form.querySelector('input[type="number"]').value;
@@ -77,11 +74,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const userType = typeEl ? typeEl.value : '';
 
             // Validação básica no frontend
+            if (!username) {
+                alert('Por favor, insere o teu primeiro e último nome!');
+                return;
+            }
             if (!email) {
                 alert('Por favor, insere um email válido!');
                 return;
             }
-
             if (!password) {
                 alert('Por favor, insere uma password!');
                 return;
@@ -98,27 +98,46 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            //Validar idade<18
-            if (parseInt(age, 10) < 18) {
+            // Validar idade<18
+            if (parseInt(age, 10) < 17) {
                 alert('Deves ter pelo menos 18 anos para te registares!');
                 return;
             }
 
-            if (!userType) {
-                alert('Por favor, escolhe se traballas ou procuras trabalho!');
+            // Validar username com pelo menos 1 espaço
+            if (!username.includes(' ')) {
+                alert('Por favor, insere o teu primeiro e último nome (tem de ter um espaço pelo meio)!');
                 return;
             }
 
-            if(typeEl.value === 'worker'){
-                const jobEl = form.querySelector('#job');
-                const job = jobEl ? jobEl.value : '';
-            }else{
-                const job = 'Desempregado';
+            // Validar username sem símbolos especiais
+            const nameRegex = /^[a-zA-ZÀ-ÿ\s]+$/;
+            if (!nameRegex.test(username)) {
+                alert('O nome não pode conter símbolos especiais ou números!');
+                return;
             }
 
-            // Register via AuthController (C# PascalCase)
+            // Validar userType
+            if (!userType) {
+                alert('Por favor, escolhe se trabalhas ou procuras trabalho!');
+                return;
+            }
+            
+            // Validar trabalho se tipo for Trabalho
+            let job = '';
+            if (userType === 'Trabalho') {
+                job = (jobSelect && jobSelect.value) ? jobSelect.value : '';
+                if (!job) {
+                    alert('Escolhe o tipo de trabalho.');
+                    return;
+                }
+            } else {
+                job = 'Desempregado';
+            }
+
+            // Registar via AuthController
             const payload = { 
-                Username: email.split('@')[0], 
+                Username: username, 
                 Email: email, 
                 Password: password, 
                 UserType: userType,
@@ -126,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Job: job
             };
 
-            // Show loading state
+            // Mostrar estado de carregamento
             const btn = form.querySelector('button');
             const originalText = btn.textContent;
             btn.textContent = 'A registar...';
@@ -139,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: JSON.stringify(payload)
                 });
                 if (res.ok) {
-                    // Redirect to login page without showing success message
+                    // Redireciona para a página de login após registo bem-sucedido
                     window.location.href = '/Pages/SignUpLogin/signup.html';
                 } else {
                     const errorMsg = await getErrorMessage(res);
@@ -154,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Login page handler (signup.html = entrar na conta)
+    // Página de LOGIN (signup.html = entrar na conta)
     if (page === 'signup') {
         const form = document.querySelector('.form-area');
         form?.addEventListener('submit', async (e) => {
@@ -173,20 +192,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Show loading state
+            // Mostrar estado de carregamento
             const btn = form.querySelector('button');
             const originalText = btn.textContent;
             btn.textContent = 'A entrar...';
             btn.disabled = true;
 
             try {
-                // C# PascalCase for LoginModel
-                const res = await postJson('/api/auth/login', { UsernameOrEmail: email, Password: password });
+                const res = await postJson('/api/auth/login', { Email: email, Password: password });
                 if (res.ok) {
                     const data = await res.json();
-                    // Save user info to localStorage
+                    // Guardar dados do utilizador no localStorage
                     localStorage.setItem('user', JSON.stringify(data.user));
-                    // Redirect without showing message
+                    // Redireciona para a página principal após login bem-sucedido
                     window.location.href = '/Pages/Main/main.html';
                 } else if (res.status === 401) {
                     const data = await res.json();

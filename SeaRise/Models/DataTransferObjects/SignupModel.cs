@@ -22,7 +22,7 @@ namespace SeaRise.Models
 
         public int Age { get; set; }
 
-        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: geral , trabalhador ou admin.")]
+        [Required(ErrorMessage = "Tem de escolher um tipo de utilizador: 'Procuro' ou 'Trabalho'.")]
         public string UserType { get; set; } = string.Empty;
         public string Job { get; set; } = string.Empty;
     }
