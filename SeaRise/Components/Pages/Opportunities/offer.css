@@ -31,6 +31,20 @@ body {
     color: #0056b3;
 }
 
+/* Company link style - different from skill links */
+.company-link {
+    color: #07395C;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #2ea44f;
+    transition: all 0.3s ease;
+}
+
+.company-link:hover {
+    color: #2ea44f;
+    border-bottom-color: #07395C;
+}
+
 
 
 #offer-title {
