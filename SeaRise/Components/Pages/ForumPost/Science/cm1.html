@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@diogomartins03</p>
+                <p class="post-date">16/12/2025 12:47</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">A primeira vez que percebi que queria fazer isto para sempre</h1>
+
+
+
+
+        <p class="post-text">
+            Sempre gostei do mar, mas nunca pensei que a ciência pudesse aproximar-me tanto dele. No meu primeiro
+            trabalho de campo como cientista marinho, estávamos a recolher amostras de plâncton ao amanhecer. O mar
+            estava completamente parado, aquele silêncio quase sagrado, e de repente vejo milhares de organismos
+            microscópicos refletidos na água, como se fossem pequenas estrelas vivas.
+
+            Foi aí que percebi: “Eu quero estudar isto para o resto da minha vida.”
+
+            É um trabalho exigente, claro — dias longos, análises demoradas, toneladas de dados que parecem não fazer
+            sentido ao início. Mas depois, quando finalmente encontras um padrão ou descobres algo novo, mesmo que
+            minúsculo… a sensação é indescritível.
+
+            Ser cientista marinho ensinou-me a ter paciência, humildade e a perceber que o oceano é muito maior do que
+            nós. E é precisamente por isso que vale a pena protegê-lo
+        </p>
+
+
+        <br>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@luisferreirabiomar</p>
+            <p class="comment-text">Que texto tão bonito 😭 isto motivou-me imenso!</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@diogomartins03</p>
+            <p class="comment-text">Obrigado!! É impossível não nos apaixonarmos pelo mar 💫🌊
+            </p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

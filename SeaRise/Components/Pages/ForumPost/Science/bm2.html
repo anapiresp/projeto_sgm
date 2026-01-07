@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://t3.ftcdn.net/jpg/04/09/99/88/360_F_409998876_a843ByR10ckIDOoh9LEhbpYkvcff9bkZ.jpg" />
+            <div>
+                <p class="post-user">@ines_davila</p>
+                <p class="post-date">10/12/2025 10:21</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">A primeira vez que senti que pertencia ao oceano</h1>
+
+
+
+
+        <p class="post-text">
+            Ser bióloga marinha não era apenas um plano de carreira — era aquele chamamento suave que eu sentia desde
+            pequena sempre que olhava para o mar. Mas a realidade superou qualquer sonho. A primeira vez que mergulhei
+            para recolher dados, senti-me tão pequena e tão parte de tudo ao mesmo tempo.
+
+            Um cardume enorme passou à minha volta, como se nem notassem a minha presença. E foi aí que percebi que este
+            trabalho é mais do que ciência — é humildade. É aprender a observar antes de agir. É aceitar que o oceano
+            tem o seu próprio ritmo e nós só acompanhamos.
+
+            Claro que também há dias difíceis: tempestades, dados perdidos, equipamentos teimosos. Mas depois há
+            momentos que compensam tudo. Como quando encontramos um grupo de golfinhos que não víamos há meses, ou
+            quando uma análise finalmente faz sentido depois de horas a olhar para o microscópio.
+
+            Se há uma coisa que este trabalho me ensinou é que vale sempre a pena. O oceano dá-nos muito… e tudo o que
+            fazemos é tentar protegê-lo de volta.
+        </p>
+
+        <br> 
+
+
+        
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@catarina_sousa</p>
+            <p class="comment-text">Wow, que inspiração 😍 Dá mesmo vontade de seguir essa área!</p>
+        </div>
+
+
+        <div class="comment">
+            <p class="comment-user">@miguel_rodrigues88</p>
+            <p class="comment-text">Identifiquei-me tanto com a parte da humildade… o mar ensina mesmo.</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@ines_davila</p>
+            <p class="comment-text">Obrigada! Nunca pensei que este caminho fosse tão transformador 💙
+            </p>
+        </div>
+
+        
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

@@ -14,7 +14,7 @@
 
 
         <div class="panel-left">
-            <img src="/Media/logo.png" class="panel-logo">
+            <img src="../../Media/logo.png" class="panel-logo">
 
             <h1>Olá!</h1>
             <p>Já tens uma conta? Bem-vindo de volta!<br>
@@ -29,18 +29,42 @@
             <h1>Criar Conta</h1>
 
 
-            <p class="subtitle">Usa o teu email para te registares:</p>
+            <p class="subtitle">Regista-te para começares a tua jornada!</p>
 
             <form class="form-area">
 
+                <div class="form-row">
+                    <input type="text" name="username" placeholder="Primeiro e último nome" class="input-lg">
+                    <input type="number" placeholder="Idade" class="input-sm">
+                </div>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Password">
 
-
                 <select id="type" name="type" class="select-box">
                     <option value="" disabled selected>Trabalhas ou procuras trabalho?</option>
-                    <option value="worker">Trabalho</option>
-                    <option value="looker">Procuro</option>
+                    <option value="Trabalho">Trabalho</option>
+                    <option value="Procuro">Procuro</option>
+                </select>
+
+                <select id="job" name="job" class="select-box" style="display: none;">
+                    <option value="" disabled selected>Que tipo de trabalho?</option>
+                    <option value="Biólogo Marinho">Biologo Marinho</option>
+                    <option value="Engenheiro Náutico">Engenheiro Náutico</option>
+                    <option value="Cientista Marinho">Cientista Marinho</option>
+                    <option value="Geneticista Marinho">Geneticista Marinho</option>
+                    <option value="Oceanógrafo">Oceanógrafo</option>
+                    <option value="Zootecnista Aquático">Zootecnista Aquático</option>
+                    <option value="Treinador de Vela Competitiva">Treinador de Vela Competitiva</option>
+                    <option value="Instrutor de Surf">Instrutor de Surf</option>
+                    <option value="Instrutor de Canoagem">Instrutor de Canoagem</option>
+                    <option value="Piloto de Embarcações de Competição">Piloto de Embarcações de Competição</option>
+                    <option value="Treinador de Natação em Águas Abertas">Treinador de Natação em Águas Abertas</option>
+                    <option value="Condutor de Barcos Turísticos">Condutor de Barcos Turísticos</option>
+                    <option value="Instrutor de Mergulho Turístico">Instrutor de Mergulho Turístico</option>
+                    <option value="Nadador Salvador">Nadador Salvador</option>
+                    <option value="Chef de Bordo">Chef de Bordo</option>
+                    <option value="Guia de catamaran">Guia de catamaran</option>
+                    <option value="Orientador de Pesca Turística">Orientador de Pesca Turística</option>
                 </select>
 
                 <button class="primary-btn">SIGN UP</button>
@@ -55,4 +79,4 @@
 
 </html>
 
-<script src="/Pages/SignUpLogin/signuplogin.js"></script>
+<script src="signuplogin.js"></script>

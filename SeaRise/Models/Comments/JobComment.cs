@@ -21,14 +21,7 @@ namespace SeaRise.Models
         [BsonElement("created_at")]
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        [BsonElement("is_approved")]
-        public bool IsApproved { get; set; } = false;
-
-        [BsonElement("was_rejected")]
-        public bool WasRejected { get; set; } = false;
-
         [BsonElement("job_testimony_id")]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string JobId { get; set; } = string.Empty;
+        public string JobTestimonyId { get; set; } = string.Empty;
     }
 }

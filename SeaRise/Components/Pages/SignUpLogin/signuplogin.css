@@ -1,5 +1,6 @@
 .login-body {
-    background-color: #000000;
+    background-image: url("https://t4.ftcdn.net/jpg/15/66/12/43/360_F_1566124318_yLEC9Sdl7VXUGj9UnnCwNrf1c6fUa3B7.jpg");
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +13,7 @@
 
 .login-container {
     width: 900px;
-    height: 500px;
+    height: 600px;
     background: white;
     border-radius: 35px;
     display: flex;
@@ -100,6 +101,23 @@
     margin-top: 15px;
 }
 
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .input-lg {
+    flex: 0 0 60%;
+    width: 60%;
+    box-sizing: border-box;
+}
+
+.form-row .input-sm {
+    flex: 0 0 35%;
+    width: 35%;
+    box-sizing: border-box;
+}
+
 .form-area input {
     background-color: #A3C8D1;
     border: none;
@@ -107,6 +125,7 @@
     border-radius: 15px;
     font-size: 15px;
     outline: none;
+    box-sizing: border-box;
 }
 
 .primary-btn {

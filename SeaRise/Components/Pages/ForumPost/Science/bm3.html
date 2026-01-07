@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGAse7bandzaVS_95QL4zTW2K0hCt32lQHGA&s" />
+            <div>
+                <p class="post-user">@marco_ferreiramar</p>
+                <p class="post-date">03/12/2025 16:47</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">O dia em que percebi que era isto que queria para sempre</h1>
+
+
+
+
+        <p class="post-text">
+            Eu não cresci a pensar em ser biólogo marinho — honestamente, tropecei nesta profissão por acaso. Mas houve
+            um momento que mudou tudo. Estávamos a fazer monitorização costeira e vimos uma tartaruga com uma linha de
+            pesca presa. Conseguimos retirá-la rapidamente e libertá-la. Nada de épico, nada de heroico… só um pequeno
+            gesto.
+
+            Mas ver aquele animal voltar ao mar, calmo, natural, como se nos agradecesse silenciosamente, deixou-me com
+            um nó na garganta. E foi aí que decidi: “é isto que eu quero fazer”.
+
+            Hoje passo os meus dias entre barcos, laboratório, dados e cafés rápidos entre uma análise e outra. E adoro.
+            Adoro a imprevisibilidade, adoro aprender sempre mais, adoro trabalhar com pessoas que têm a mesma paixão e,
+            acima de tudo, adoro sentir que contribuo para algo maior.
+
+            Não, não é uma profissão perfeita — mas é profundamente real. E isso basta.
+        </p>
+
+
+        <img class="post-media"
+            src="https://artsandsciences.fsu.edu/sites/default/files/2021-06/MarianaFuentes_FULL.jpg"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+        <div class="comment">
+            <p class="comment-user">@joao_ribeiro97</p>
+            <p class="comment-text">Admiro tanto quem trabalha nesta área. Obrigado por partilhares!</p>
+        </div>
+
+        <div class="comment reply">
+            <p class="comment-user">@marco_ferreiramar</p>
+            <p class="comment-text">Acontece mais vezes do que imaginas… e vale sempre a pena 💙🐢
+            </p>
+        </div>
+
+        <div class="comment">
+            <p class="comment-user">@sofia_monteiro</p>
+            <p class="comment-text">Chorei na parte da tartaruga 😭 que lindo mesmo!</p>
+        </div>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

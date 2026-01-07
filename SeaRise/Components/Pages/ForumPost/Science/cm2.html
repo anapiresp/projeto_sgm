@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testemunho - Biólogo Marinho</title>
+
+    <link rel="stylesheet" href="../testimony.css">
+</head>
+
+<body>
+
+
+    <object data="../../../Partials/header.html" type="text/html" class="header-object">
+    </object>
+
+
+    <div class="post-container">
+
+        <div class="post-header">
+            <img class="avatar"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEarI37Q50_iFkMR09jevkQBVtG8O9tguVHg&s" />
+            <div>
+                <p class="post-user">@luvjiaa</p>
+                <p class="post-date">02/12/2025 09:13</p>
+            </div>
+        </div>
+
+
+
+        <h1 class="post-title">Entre dados, sensores e um fascínio que nunca passa</h1>
+
+
+
+
+        <p class="post-text">
+            Grande parte do meu trabalho como cientista marinha é analisar dados — toneladas deles. Correntes,
+            temperatura, salinidade, organismos, tudo. Muita gente acha que isso é aborrecido, mas para mim é o
+            contrário: é como resolver um puzzle gigante em que cada peça tem impacto no futuro do planeta.
+
+            Mas o momento que mais me marcou foi quando fui pela primeira vez lançar instrumentação oceânica. Ver aquele
+            equipamento desaparecer lentamente no azul profundo… é quase poético. É confiar que, lá em baixo, no
+            silêncio absoluto, ele vai trazer respostas que ainda nem sabemos que precisamos.
+
+            E depois há a equipa — rimos, debatemos, discordamos, celebramos. A ciência marinha é exigente, mas também
+            muito humana. Não trocava esta vida por nada.
+        </p>
+
+
+        <img class="post-media"
+            src="https://www.oceans-research.com/wp-content/uploads/2023/03/A9B408D7-3C3E-4FD3-B70D-793F01C06753.jpg"
+            alt="Imagem do testemunho">
+        <hr>
+
+        <button class="add-comment-btn" onclick="openPopup()">+ Adicionar comentário</button>
+
+
+
+        <h2 class="comments-title">Comentários</h2>
+
+    </div>
+
+
+
+
+
+    <div id="popup" class="popup-overlay">
+        <div class="popup-box">
+
+            <h2>Adicionar Comentário</h2>
+
+            <textarea id="commentText" placeholder="Escreve o teu comentário..."></textarea>
+
+            <div class="popup-actions">
+                <button class="popup-ok" onclick="submitComment()">OK</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="../popup.js"></script>
+
+</body>
+
+</html>

@@ -32,7 +32,7 @@ body {
     padding: 25px;
     border-radius: 18px;
     margin-bottom: 40px;
-    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .job-description-top p {
@@ -56,7 +56,7 @@ body {
     max-width: 100%;
     border-radius: 18px;
     object-fit: cover;
-    box-shadow: 0px 3px 10px rgba(0,0,0,0.25);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
 }
 
 .job-columns {
@@ -70,7 +70,7 @@ body {
     background-color: white;
     padding: 25px;
     border-radius: 18px;
-    box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
 }
 
 .column h2 {
@@ -94,4 +94,77 @@ body {
 .column-btn:hover {
     background-color: #07395C;
     transform: scale(1.02);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    transition: transform 0.15s ease;
+}
+
+.testimonial-card:hover {
+    background-color: #07395C;
+    transform: scale(1.02);
+}
+
+.testimonial-image {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+    background-color: #eef5f7;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    background-color: #1A4F7A;
+    color: white;
+    padding: 14px;
+    text-align: center;
+
+    height: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.testimonial-content span {
+    font-size: 14px;
+    opacity: 0.9;
 }
