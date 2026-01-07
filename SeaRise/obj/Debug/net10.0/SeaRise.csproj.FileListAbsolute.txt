@@ -78,3 +78,44 @@ C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_P
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.genruntimeconfig.cache
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\obj\Debug\net10.0\ref\SeaRise.dll
 C:\Users\antro\Desktop\SGM (Sistemas Gráficos e Multimédia)\Projeto\SGM25_26_Projeto\projeto_sgm\SeaRise\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\appsettings.Development.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\appsettings.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.staticwebassets.endpoints.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.exe
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.deps.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.runtimeconfig.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SeaRise.pdb
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\DnsClient.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\MongoDB.Bson.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\MongoDB.Driver.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\SharpCompress.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\Snappier.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\bin\Debug\net10.0\ZstdSharp.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.csproj.AssemblyReference.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.AssemblyInfoInputs.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.AssemblyInfo.cs
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.csproj.CoreCompileInputs.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.sourcelink.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\scopedcss\bundle\SeaRise.styles.css
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\staticwebassets.build.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\staticwebassets.development.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\swae.build.ex.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.csproj.Up2Date
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\refint\SeaRise.dll
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.pdb
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\SeaRise.genruntimeconfig.cache
+C:\Users\apires\Desktop\Aninhas\Aninhas\2526\1\sgm\projeto_sgm\SeaRise\obj\Debug\net10.0\ref\SeaRise.dll

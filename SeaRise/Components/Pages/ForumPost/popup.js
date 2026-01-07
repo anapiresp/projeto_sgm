@@ -18,7 +18,7 @@ function submitComment() {
     const newComment = document.createElement("div");
     newComment.classList.add("comment");
     newComment.innerHTML = `
-        <p class="comment-user">@ana_pires</p>
+        <p class="comment-user">@maria</p>
         <p class="comment-text">${text}</p>
     `;
 

@@ -27,8 +27,14 @@
         <section class="offer-requirements">
             <h2>Requisitos</h2>
 
-            <p>
-                A Rota dos Cetáceos é uma das empresas mais respeitadas na ilha em observação de baleias e golfinhos.
+                <div class="info-wrapper">
+                    <button class="offer-cta" aria-haspopup="dialog" aria-controls="offer-modal">
+                        <span class="cta-text">Oferta</span>
+                    </button>
+                </div>
+
+                <p>
+                A <a href="https://rota-dos-cetaceos.pt/?ref=22428634264-181310953561-fhdirectads_rotadoscetaceos_brand&gad_source=1&gad_campaignid=22428634264&gclid=Cj0KCQiAgvPKBhCxARIsAOlK_Eqi5FS5qBBayM2_7hujEz2N9-mhupEPAo5QsFwb-hENvexZgBsyKjQaAvVOEALw_wcB" class="company-link">Rota dos Cetáceos</a> é uma das empresas mais respeitadas na ilha em observação de baleias e golfinhos.
                 Trabalham com biólogos marinhos, spotters em terra, skippers experientes e guias apaixonados. O objetivo
                 deles é proporcionar uma experiência incrível, sempre com foco na segurança, respeito pelos animais e
                 educação ambiental. Têm embarcações rápidas e catamarãs, e todos os dias recebem turistas de todo o
@@ -38,23 +44,70 @@
 
             <ul>
                 <li>Excelente comunicação e gosto por lidar com pessoas</li>
-                <li>Fluência em inglês (muito valorizado: francês, alemão ou espanhol)</li>
+                <li>Fluência em inglês (muito valorizado: francês, alemão ou espanhol) <a href="https://preply.com/pt/?campaignid=10765179772&network=g&adgroupid=117811318458&keyword=escola%20idioma&matchtype=b&creative=590421896817&targetid=kwd-295027211460&placement=&loc_physical_ms=20882&device=c&adgroupintent=&utm_source=google&utm_medium=cpc&utm_term=escola%20idioma&utm_campaign=stu_sem_generic_web_0_por_pt_multiplesub_xx&hsa_acc=3694996243&hsa_cam=10765179772&hsa_grp=117811318458&hsa_ad=590421896817&hsa_src=g&hsa_tgt=kwd-295027211460&hsa_kw=escola%20idioma&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=10765179772&gclid=Cj0KCQiAgvPKBhCxARIsAOlK_Ep_s1AOxa5EdpOvUl_LC2BBQsXDrF44ygUUKxCXPdlnYTRBHH1ZQdsaAonSEALw_wcB" target="_blank" rel="noopener noreferrer" class="skill-link">(Ver formação)</a></li>
                 <li>Capacidade de explicar comportamentos de cetáceos de forma simples e entusiasmante</li>
-                <li>Conforto com navegação, marés e noções de segurança a bordo</li>
-                <li>Formação de primeiros socorros</li>
+                <li>Conforto com navegação, marés e noções de segurança a bordo <a href="https://www.yachting.com/pt-pt/news/first-time-on-a-catamaran-what-you-should-know?srsltid=AfmBOoqGOQBZbVOs0QbSCpek0S6DuHn5rt_ooRj3ER0pvFet_tVKL7RU" target="_blank" rel="noopener noreferrer" class="skill-link">(Detalhes)</a></li>
+                <li>Formação de primeiros socorros <a href="https://www.qualificar-fp.pt/primeiros_socorros.html" target="_blank" rel="noopener noreferrer" class="skill-link">(Ver formação)</a></li>
                 <li>Capacidade de manter calma e orientar passageiros em situações inesperadas</li>
             </ul>
         </section>
+
+        <script src="../offer.js"></script>
+
+        <!-- Modal for accepting the offer -->
+        <div id="offer-modal" class="modal-overlay" aria-hidden="true" hidden>
+            <div class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <button class="modal-close" aria-label="Fechar">×</button>
+                <h3 id="modal-title">Oferta especial</h3>
+                <div class="modal-body">
+                    <p>Ao aceitar esta oferta de trabalho, receberá um <strong>voucher de aulas grátis para a família</strong>.</p>
+                    <p>O voucher será enviado para o e-mail associado à sua conta após a validação da contratação.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-accept">Aceitar oferta</button>
+                    <button class="modal-cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
 
         <section class="offer-testemunhos">
 
             <div class="column">
                 <h2>Testemunhos</h2>
 
-                <a href="../../ForumPost/Tourism/t2.html"><button class="column-btn">@madi_4r</button></a>
-                <button class="column-btn">@sea_enthusiastww</button>
-                <button class="column-btn">@anabanana</button>
-            </div>
+                <div class="testimonials-grid">
+
+                    <a href="../../ForumPost/Tourism/t1_vmt.html" class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://c.stocksy.com/a/3EAN00/z9/5520855.jpg" alt="User">
+                        </div>
+
+                        <div class="testimonial-content">
+                            <span>@madi_4r</span>
+                        </div>
+                    </a>
+
+                    <a href="" class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://images.unsplash.com/photo-1511468207104-3be8c87c88f5?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuJTIwaW4lMjBvY2VhbnxlbnwwfHwwfHx8MA%3D%3D" alt="User">
+                        </div>
+
+                        <div class="testimonial-content">
+                            <span>@sea_enthusiastww</span>
+                        </div>
+                    </a>
+
+                    <a href="" class="testimonial-card">
+                        <div class="testimonial-image">
+                            <img src="https://img.freepik.com/free-photo/vertical-shot-beautiful-smiling-girl_181624-35850.jpg?semt=ais_hybrid&w=740&q=80" alt="User">
+                        </div>
+
+                        <div class="testimonial-content">
+                            <span>@anabanana</span>
+                        </div>
+                    </a>
+
+                </div>
 
         </section>
     </main>

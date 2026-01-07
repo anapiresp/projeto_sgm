@@ -36,9 +36,22 @@
             <div id="message" class="message"></div>
         </form>
 
+        <form id="changeNameForm" class="profile-form">
+            <h2>Alterar Nome de Utilizador</h2>
+            
+            <label>Novo Nome de Utilizador
+                <input type="text" id="newName" name="newName" placeholder="Insere o teu novo nome de utilizador" required>
+            </label>
+
+            <button type="submit" id="changeNameBtn">Mudar Nome de Utilizador</button>
+
+            <div id="nameMessage" class="message"></div>
+        </form>
+
         <form id="logoutForm" class="profile-form">
-            <h2>Sessão</h2>
+            <h2>Conta</h2>
             <button type="submit" id="logoutBtn" class="logout-btn">Logout</button>
+            <button type="button" id="deleteAccountBtn" class="delete-account-btn">Eliminar Conta</button>
         </form>
 
     </main>
