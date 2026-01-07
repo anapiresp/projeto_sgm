@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalDialog = modal?.querySelector('.offer-modal');
     let openBtn = document.querySelector('.offer-cta');
     if (!openBtn) {
-        // fallback: find any element that targets the modal via aria-controls
         openBtn = document.querySelector('[aria-controls="offer-modal"]');
     }
     console.log('[offer.js] modal:', !!modal, 'openBtn:', !!openBtn);
@@ -45,9 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         openBtn?.focus();
     }
 
-    // Primary listener
     openBtn?.addEventListener('click', (e) => { e.stopPropagation(); openModal(); });
-    // Fallback: delegate clicks to document (useful if elements are injected later)
     if (!openBtn) {
         document.addEventListener('click', (e) => {
             const el = e.target.closest && e.target.closest('.offer-cta, [aria-controls="offer-modal"]');

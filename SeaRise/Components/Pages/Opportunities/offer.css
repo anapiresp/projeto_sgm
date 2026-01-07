@@ -82,12 +82,11 @@ body {
     box-shadow: 0px 3px 10px rgba(0,0,0,0.15);
 }
 
-/* Info button (exclamation) and popup */
+
 .offer-requirements { position: relative; }
 .info-wrapper {
     position: absolute;
     top: 18px;
-    /* horizontal position controlled by the main .info-wrapper block below (left) */
     display: inline-block;
     z-index: 30;
 }
@@ -110,7 +109,7 @@ body {
 
 .info-popup {
     position: absolute;
-    left: 0; /* open under the button when in the left corner */
+    left: 0; 
     top: calc(100% + 10px);
     width: 260px;
     background: white;
@@ -137,7 +136,7 @@ body {
     content: '';
     position: absolute;
     top: -6px;
-    left: 14px; /* pointer aligned with left side */
+    left: 14px; 
     width: 10px;
     height: 10px;
     background: white;
@@ -179,9 +178,8 @@ body {
     font-weight:700;
 }
 
-/* CTA button (attractive, matches page style) */
 .offer-cta {
-    /* Match .column-btn appearance */
+    
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -199,11 +197,10 @@ body {
 .offer-cta:hover { background-color: #07395C; transform: translateY(-2px); }
 .offer-cta .cta-icon { display: none; }
 
-/* Make the info wrapper more attractive */
 .info-wrapper {
     position: absolute;
     top: 18px;
-    left: 18px; /* place on the left corner */
+    left: 18px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -212,7 +209,7 @@ body {
     box-shadow: 0 8px 20px rgba(11, 58, 91, 0.08);
     transition: transform 120ms ease, box-shadow 120ms ease;
     z-index: 60;
-    width: auto; /* compact wrapper so it does not overlap content */
+    width: auto; 
     min-width: 0;
     background-color: white !important;
     color: white !important;
@@ -238,7 +235,7 @@ body {
 }
 .offer-cta:hover { background-color: #07395C; transform: translateY(-2px); }
 
-/* Responsive adjustment: move wrapper under title on narrow screens */
+
 @media (max-width: 720px) {
     .info-wrapper { position: static;
         margin: 12px 0 8px;
@@ -260,7 +257,7 @@ body {
 }
 .modal-overlay[aria-hidden="false"] { display:flex; }
 .offer-badge {
-    display: none; /* hide badge so only the button appears */
+    display: none;
 }
 .modal-body p {
     margin: 8px 0;
@@ -278,8 +275,28 @@ body {
 .modal-accept { background:#2ea44f; color:white; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; font-weight:700; }
 .modal-cancel { background:#e6eef0; color:#07395C; border:none; padding:10px 14px; border-radius:8px; cursor:pointer; }
 
-.offer-modal .success-inner { display:flex; gap:12px; align-items:center; background-color: white !important;}
-.offer-modal .success-inner .check { width:44px;height:44px;border-radius:50%;background:#2ea44f;color:white;display:flex;align-items:center;justify-content:center;font-weight:700; }
+.offer-modal {
+    background: white;
+    padding: 24px 30px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    position: relative;
+}
+
+.offer-modal .success-inner { display:flex; 
+    gap:12px; 
+    align-items:center; }
+.offer-modal .success-inner .check { width:44px;
+    height:44px;
+    border-radius:
+    50%;background:#2ea44f;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700 }
 
 
 .offer-requirements h2 {
