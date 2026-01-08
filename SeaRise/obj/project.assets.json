@@ -324,19 +324,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\apires\\.nuget\\packages\\": {}
+    "C:\\Users\\vitor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+      "projectUniqueName": "C:\\Users\\vitor\\Downloads\\projeto_sgm\\SeaRise\\SeaRise.csproj",
       "projectName": "SeaRise",
-      "projectPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\SeaRise.csproj",
-      "packagesPath": "C:\\Users\\apires\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\apires\\Desktop\\Aninhas\\Aninhas\\2526\\1\\sgm\\projeto_sgm\\SeaRise\\obj\\",
+      "projectPath": "C:\\Users\\vitor\\Downloads\\projeto_sgm\\SeaRise\\SeaRise.csproj",
+      "packagesPath": "C:\\Users\\vitor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vitor\\Downloads\\projeto_sgm\\SeaRise\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\apires\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\vitor\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
