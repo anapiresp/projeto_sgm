@@ -44,7 +44,31 @@
                 <li><strong>Flexibilidade de horários</strong> — disponibilidade para trabalhar fins de semana e adaptar-se à sazonalidade e às condições do mar.</li>
     
             </ul>
+
+            <div class="info-wrapper">
+                    <button class="offer-cta" aria-haspopup="dialog" aria-controls="offer-modal">
+                        <span class="cta-text">Oferta</span>
+                    </button>
+            </div>
+
         </section>
+
+        <script src="../offer.js"></script>
+
+        <div id="offer-modal" class="modal-overlay" aria-hidden="true" hidden>
+            <div class="offer-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <button class="modal-close" aria-label="Fechar">x</button>
+                <h3 id="modal-title">Oferta especial</h3>
+                <div class="modal-body">
+                    <p>Ao aceitar esta oferta de trabalho, receberá um <strong>voucher de uma viagem grátis para a família</strong>.</p>
+                    <p>O voucher será enviado para o e-mail associado à sua conta após a validação da contratação.</p>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-accept">Aceitar oferta</button>
+                    <button class="modal-cancel">Cancelar</button>
+                </div>
+            </div>
+        </div>
 
         <section class="offer-testemunhos">
 
