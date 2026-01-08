@@ -241,6 +241,14 @@ body {
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     position: relative;
 }
+.modal-close {
+    background:#e6eef0; 
+    color:#07395C; 
+    border:none; 
+    padding:10px 14px; 
+    border-radius:8px; 
+    cursor:pointer;
+}
 
 .offer-modal .success-inner { display:flex; 
     gap:12px; 
